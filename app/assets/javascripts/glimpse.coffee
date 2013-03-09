@@ -1,10 +1,10 @@
 #= require glimpse/vendor/jquery.cookies.js
 
 updatePerformanceBar = ->
-  glimpsePerformance = $('#glimpse-performance')
+  glimpseResults = $('#glimpse-results')
   $('#glimpse [data-defer-to]').each ->
     deferKey = $(this).data 'defer-to'
-    data = glimpsePerformance.data deferKey
+    data = glimpseResults.data deferKey
     $(this).text data
 
 toggleBar = (event) ->
