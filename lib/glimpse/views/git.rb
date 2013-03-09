@@ -12,7 +12,7 @@ module Glimpse
       end
 
       def compare_url
-        "https://github.com/#{nwo}/compare/master...#{sha}"
+        "https://github.com/#{@nwo}/compare/master...#{sha}"
       end
     end
   end
