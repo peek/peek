@@ -83,7 +83,7 @@ It will look something like:
 ```
 
 Now that you have the partials in your application, you will need to include the
-assets required to make everything :sparkle:
+assets required to make everything :sparkles:
 
 In `app/assets/stylesheets/application.scss`:
 
