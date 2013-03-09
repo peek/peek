@@ -10,7 +10,7 @@ module Glimpse
       end
 
       def partial_path
-        "glimpse/views/#{self.class.to_s.split('::').last.downcase}"
+        self.class.to_s.underscore
       end
     end
   end
