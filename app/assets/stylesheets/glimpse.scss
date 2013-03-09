@@ -9,6 +9,10 @@
     display: none;
   }
 
+  &.disabled {
+    display: none;
+  }
+
   &.production {
     background: image-url('glimpse/bar/production.gif') repeat 0 0;
   }

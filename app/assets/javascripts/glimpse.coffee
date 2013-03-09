@@ -1,3 +1,5 @@
+#= require glimpse/vendor/jquery.cookies.js
+
 updatePerformanceBar = ->
   glimpsePerformance = $('#glimpse-performance')
   $('#glimpse [data-defer-to]').each ->
@@ -5,7 +7,15 @@ updatePerformanceBar = ->
     data = glimpsePerformance.data deferKey
     $(this).text data
 
+toggleBar = (event) ->
+  return if $(event.target).is ':input'
+
+  if event.keyCode == 96
+    $('#glimpse').toggleClass 'disabled'
+    $.cookie('glimpse', !$.cookie('glimpse'))
+
 $(document).on 'pjax:end', updatePerformanceBar
+$(document).on 'keypress', toggleBar
 
 $ ->
   updatePerformanceBar()
