@@ -22,12 +22,8 @@ describe Glimpse do
   end
 
   describe "env" do
-    before do
-      ENV['RACK_ENV'] = 'production'
-    end
-
     it "should return the current environment" do
-      assert_equal 'production', Glimpse.env
+      assert_equal 'test', Glimpse.env
     end
   end
 
