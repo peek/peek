@@ -34,17 +34,75 @@ are added to Glimpse, the order they will appear in your bar.
 
 ```ruby
 Glimpse.into Glimpse::Views::Git, :nwo => 'github/hire', :default_branch => 'other_branch'
-Glimpse.into Glimpse::Views::NavigationTime
-Glimpse.into Glimpse::Views::Unicorn
-Glimpse.into Glimpse::Views::ActiveRecord
+Glimpse.into Glimpse::Views::Mongo
+Glimpse.into Glimpse::Views::Mysql2
 Glimpse.into Glimpse::Views::Redis
 ```
 
-Once your views are added to Glimpse, just render your bar by adding the following
-after the opening `<body>` tag in your application layout.
+To render the Glimpse bar in your application just add the following snippet
+just before the opening `<body>` tag in your application layout.
+
+```erb
+<%= render 'glimpse/bar' %>
+```
+
+It will look something like:
+
+```erb
+<html>
+  <head>
+    <title>Application</title>
+  </head>
+  <body>
+    <%= render 'glimpse/bar' %>
+    <%= yield %>
+  </body>
+</html>
+```
+
+Some Glimpse views require the view to render before data is collected and can
+be presented, ie: the number of MySQL queries ran on the page and how
+long it took.
+
+For this to work, you need to include the performance partial at the end of your
+application layout.
+
+It will look something like:
+
+```erb
+<html>
+  <head>
+    <title>Application</title>
+  </head>
+  <body>
+    <%= render 'glimpse/bar' %>
+    <%= yield %>
+    <%= render 'glimpse/results' %>
+  </body>
+</html>
+```
+
+## Using Glimpse with PJAX
+
+When using PJAX requests won't render default application layout which ends
+up not including the required results partial. It's fairly simple to work around
+if you're using the [pjax_rails](https://github.com/rails/pjax_rails) gem.
+
+Create a new layout at `app/views/layouts/pjax.html.erb`:
+
+```erb
+<%= yield %>
+<%= render 'glimpse/results' %>
+```
+
+Now you'll just need use the PJAX layout:
 
 ```ruby
-<%= render 'glimpse/bar' %>
+class ApplicationController < ActionController::Base
+  def pjax_layout
+    'pjax'
+  end
+end
 ```
 
 ## Available Glimpse views
