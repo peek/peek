@@ -34,6 +34,14 @@ module Glimpse
       def setup_subscribers
         # pass
       end
+
+      # Helper method for subscribing to the event that is fired when new
+      # requests are made.
+      def before_request
+        subscribe 'start_processing.action_controller' do |name, start, finish, id, payload|
+          yield name, start, finish, id, payload
+        end
+      end
     end
   end
 end

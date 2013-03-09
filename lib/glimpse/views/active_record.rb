@@ -31,8 +31,7 @@ module Glimpse
       private
 
       def setup_subscribers
-        # Reset each counter when a new request starts
-        subscribe 'start_processing.action_controller' do
+        before_request do
           @queries.clear
           @query_times.clear
         end
