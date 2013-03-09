@@ -1,5 +1,16 @@
 require 'glimpse/version'
 
 module Glimpse
-  # Your code goes here...
+  def self.views
+    @views
+  end
+
+  def self.view(klass, options = {})
+    @views ||= []
+    @views << [klass, options]
+  end
+
+  def self.reset
+    @views = []
+  end
 end
