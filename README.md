@@ -1,5 +1,7 @@
 # Glimpse
 
+[![Build Status](https://travis-ci.org/dewski/glimpse.png?branch=master)](https://travis-ci.org/dewski/glimpse)
+
 Provide a glimpse into your Rails applications.
 
 ## Installation
