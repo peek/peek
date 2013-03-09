@@ -1,5 +1,5 @@
 <% if Glimpse.enabled? %>
-<div id="glimpse">
+<div id="glimpse" class="<%= Glimpse.env %>">
   <div class="wrapper">
     <% Glimpse.views.each do |view| %>
       <%= render view.partial_path, :view => view %>

@@ -1,6 +1,26 @@
 #glimpse {
-  background: #000
-}
+  background: #000;
+  height: 35px;
+  line-height: 35px;
+  color: #999;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+
+  &.production {
+    background: image-url('glimpse/bar/production.gif') repeat 0 0;
+  }
+
+  &.staging {
+    background: image-url('glimpse/bar/staging.gif') repeat 0 0;
+  }
+
+  &.development {
+    background: image-url('glimpse/bar/development.gif') repeat 0 0;
+  }
+
+  .wrapper {
+    width: 800px;
+    margin: 0 auto;
+  }
 
 #glimpse .wrapper {
   width: 800px;

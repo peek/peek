@@ -11,6 +11,10 @@ module Glimpse
     Rails.env.development?
   end
 
+  def self.env
+    Rails.env
+  end
+
   def self.views
     @views.collect { |klass, options| klass.new(options) }.select(&:enabled?)
   end
