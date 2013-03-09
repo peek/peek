@@ -49,11 +49,11 @@ after the opening `<body>` tag in your application layout.
 
 ## Available Glimpse views
 
-- Git
+- [glimpse-git](https://github.com/dewski/glimpse-git)
+- [glimpse-redis](https://github.com/dewski/glimpse-redis)
+- [glimpse-mysql2](https://github.com/dewski/glimpse-mysql2)
 - Navigation Time
 - Unicorn
-- ActiveRecord
-- Redis
 
 ## Contributing
 
