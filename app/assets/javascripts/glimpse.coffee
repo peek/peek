@@ -12,7 +12,8 @@ toggleBar = (event) ->
 
   if event.keyCode == 96
     $('#glimpse').toggleClass 'disabled'
-    $.cookie('glimpse', !$.cookie('glimpse'))
+    enable = $.cookie('glimpse') == 'false'
+    $.cookie('glimpse', enable)
 
 $(document).on 'pjax:end', updatePerformanceBar
 $(document).on 'keypress', toggleBar
