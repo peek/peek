@@ -8,7 +8,7 @@ end
 
 module Glimpse
   def self.views
-    @views
+    @views.collect { |klass, options| klass.new(options) }
   end
 
   def self.view(klass, options = {})

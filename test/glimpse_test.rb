@@ -1,5 +1,15 @@
 require 'test_helper'
 
+class Staff < Glimpse::Views::View
+  def initialize(options = {})
+    @username = options.delete(:username)
+  end
+
+  def username
+    @username
+  end
+end
+
 describe Glimpse do
   describe "views" do
     before do
@@ -11,9 +21,15 @@ describe Glimpse do
     end
 
     it "should be able to append views" do
-      @view = Object.new
-      Glimpse.view @view
-      assert_equal [[@view, {}]], Glimpse.views
+      Glimpse.view Staff
+      assert_kind_of Staff, Glimpse.views.first
+    end
+
+    it "should be able to append views with options" do
+      Glimpse.view Staff, :username => 'dewski'
+      @staff = Glimpse.views.first
+      assert_kind_of Staff, @staff
+      assert_equal 'dewski', @staff.username
     end
   end
 end
