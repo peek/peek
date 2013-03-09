@@ -16,11 +16,7 @@ end
 
 describe Glimpse do
   describe "enabled?" do
-    before do
-      ENV['RACK_ENV'] = 'production'
-    end
-
-    it "should not be enabled in production" do
+    it "should not be enabled in test" do
       refute Glimpse.enabled?
     end
   end
