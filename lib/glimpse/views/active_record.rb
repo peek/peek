@@ -5,7 +5,7 @@ module Glimpse
         @queries = []
         @query_times = []
 
-        setup_subscriber
+        setup_subscribers
       end
 
       def queries
@@ -25,15 +25,12 @@ module Glimpse
       end
 
       def results
-        {
-          :db       => formatted_duration,
-          :queries  => queries
-        }
+        { :duration => formatted_duration, :queries => queries }
       end
 
       private
 
-      def setup_subscriber
+      def setup_subscribers
         # Reset each counter when a new request starts
         subscribe 'start_processing.action_controller' do
           @queries.clear
