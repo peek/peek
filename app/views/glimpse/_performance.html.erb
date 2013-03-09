@@ -1,0 +1,8 @@
+<span id="glimpse_performance" class="hidden"
+  <% Glimpse.views.each do |view| %>
+    <% view.results.each do |key, value| %>
+    data-<%= view.defer_key %>-<%= key %>="<%= value %>"
+    <% end %>
+  <% end %>
+>
+</span>
