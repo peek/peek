@@ -52,6 +52,7 @@ after the opening `<body>` tag in your application layout.
 - [glimpse-git](https://github.com/dewski/glimpse-git)
 - [glimpse-redis](https://github.com/dewski/glimpse-redis)
 - [glimpse-mysql2](https://github.com/dewski/glimpse-mysql2)
+- [glimpse-mongo](https://github.com/dewski/glimpse-mongo)
 - Navigation Time
 - Unicorn
 
