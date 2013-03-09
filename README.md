@@ -47,6 +47,14 @@ after the opening `<body>` tag in your application layout.
 <%= render 'glimpse/bar' %>
 ```
 
+## Available Glimpse views
+
+- Git
+- Navigation Time
+- Unicorn
+- ActiveRecord
+- Redis
+
 ## Contributing
 
 1. Fork it
