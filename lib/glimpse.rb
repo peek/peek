@@ -16,7 +16,11 @@ module Glimpse
   end
 
   def self.views
-    @cached_views ||= @views.collect { |klass, options| klass.new(options.dup) }.select(&:enabled?)
+    @cached_views ||= if @views && @views.any?
+      @views.collect { |klass, options| klass.new(options.dup) }.select(&:enabled?)
+    else
+      []
+    end
   end
 
   def self.into(klass, options = {})
@@ -25,7 +29,8 @@ module Glimpse
   end
 
   def self.reset
-    @views = []
+    @views = nil
+    @cached_views = nil
   end
 end
 
