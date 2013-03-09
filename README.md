@@ -33,7 +33,7 @@ Feel free to pick and choose from the list or create your own. The order they
 are added to Glimpse, the order they will appear in your bar.
 
 ```ruby
-Glimpse.into Glimpse::Views::Git, :nwo => 'github/hire', :default_branch => 'other_branch'
+Glimpse.into Glimpse::Views::Git, :nwo => 'github/janky'
 Glimpse.into Glimpse::Views::Mongo
 Glimpse.into Glimpse::Views::Mysql2
 Glimpse.into Glimpse::Views::Redis
