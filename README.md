@@ -20,12 +20,31 @@ Or install it yourself as:
 
 ## Usage
 
+Run the Rails generator to get Glimpse up and included into your project:
+
+```
+rails generate glimpse:install
+```
+
+This will create a file at `config/initializers/glimpse.rb` which will give you
+example views to include into your Glimpse bar.
+
+Feel free to pick and choose from the list or create your own. The order they
+are added to Glimpse, the order they will appear in your bar.
+
 ```ruby
-Glimpse.view Glimpse::Git, :github => 'github/hire'
-Glimpse.view Glimpse::NavigationTime
-Glimpse.view Glimpse::Unicorn
-Glimpse.view Glimpse::ActiveRecord
-Glimpse.view Glimpse::Redis
+Glimpse.view Glimpse::Views::Git, :github => 'github/hire'
+Glimpse.view Glimpse::Views::NavigationTime
+Glimpse.view Glimpse::Views::Unicorn
+Glimpse.view Glimpse::Views::ActiveRecord
+Glimpse.view Glimpse::Views::Redis
+```
+
+Once your views are added to Glimpse, just render your bar by adding the following
+after the opening `<body>` tag in your application layout.
+
+```ruby
+<%= render 'glimpse/bar' %>
 ```
 
 ## Contributing
