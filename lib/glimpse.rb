@@ -8,11 +8,11 @@ end
 
 module Glimpse
   def self.enabled?
-    Rails.env.development?
+    ['development', 'staging'].include?(env)
   end
 
   def self.env
-    Rails.env
+    ENV['RAILS_ENV'] || ENV['RACK_ENV']
   end
 
   def self.views
