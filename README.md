@@ -87,7 +87,7 @@ assets required to make everything :sparkles:
 
 In `app/assets/stylesheets/application.scss`:
 
-```coffeescript
+```scss
 //= require glimpse
 ```
 
