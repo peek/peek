@@ -1,4 +1,6 @@
 require 'glimpse/version'
+require 'rails'
+
 Dir[File.join(File.dirname(__FILE__), 'glimpse', 'views', '*.rb')].each do |view|
   require view
 end
