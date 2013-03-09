@@ -1,6 +1,6 @@
 module Glimpse
   module Views
-    class Git
+    class Git < View
       def initialize(options = {})
         @sha = options.delete(:sha)
         @nwo = options.delete(:nwo)
