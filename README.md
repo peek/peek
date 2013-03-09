@@ -33,11 +33,11 @@ Feel free to pick and choose from the list or create your own. The order they
 are added to Glimpse, the order they will appear in your bar.
 
 ```ruby
-Glimpse.view Glimpse::Views::Git, :github => 'github/hire'
-Glimpse.view Glimpse::Views::NavigationTime
-Glimpse.view Glimpse::Views::Unicorn
-Glimpse.view Glimpse::Views::ActiveRecord
-Glimpse.view Glimpse::Views::Redis
+Glimpse.into Glimpse::Views::Git, :nwo => 'github/hire', :default_branch => 'other_branch'
+Glimpse.into Glimpse::Views::NavigationTime
+Glimpse.into Glimpse::Views::Unicorn
+Glimpse.into Glimpse::Views::ActiveRecord
+Glimpse.into Glimpse::Views::Redis
 ```
 
 Once your views are added to Glimpse, just render your bar by adding the following

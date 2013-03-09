@@ -11,7 +11,7 @@ module Glimpse
     @views.collect { |klass, options| klass.new(options) }.select(&:enabled?)
   end
 
-  def self.view(klass, options = {})
+  def self.into(klass, options = {})
     @views ||= []
     @views << [klass, options]
   end
