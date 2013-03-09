@@ -6,11 +6,11 @@ require 'glimpse/version'
 Gem::Specification.new do |gem|
   gem.name          = 'glimpse'
   gem.version       = Glimpse::VERSION
-  gem.authors       = ['dewski']
+  gem.authors       = ['Garrett Bjerkhoel']
   gem.email         = ['me@garrettbjerkhoel.com']
-  gem.description   = %q{Provide a glimpse into your Rails applications.}
-  gem.summary       = %q{Provide a glimpse into your Rails applications.}
-  gem.homepage      = ""
+  gem.description   = %q{Provide a glimpse into your Rails application.}
+  gem.summary       = %q{Provide a glimpse into your Rails application.}
+  gem.homepage      = 'https://github.com/dewski/glimpse'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
