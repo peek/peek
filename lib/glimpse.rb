@@ -14,3 +14,5 @@ module Glimpse
     @views = []
   end
 end
+
+require 'glimpse/railtie'
