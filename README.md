@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/dewski/glimpse.png?branch=master)](https://travis-ci.org/dewski/glimpse)
 
-Provide a glimpse into your Rails applications.
+Provide a glimpse into your Rails application. 
 
 ## Installation
 
@@ -82,6 +82,23 @@ It will look something like:
 </html>
 ```
 
+Now that you have the partials in your application, you will need to include the
+assets required to make everything :sparkle:
+
+In `app/assets/stylesheets/application.scss`:
+
+```coffeescript
+//= require glimpse
+```
+
+In `app/assets/javascripts/application.coffee`:
+
+```coffeescript
+#= require jquery
+#= require jquery_ujs
+#= require glimpse
+```
+
 ## Using Glimpse with PJAX
 
 When using PJAX requests won't render default application layout which ends
@@ -104,6 +121,9 @@ class ApplicationController < ActionController::Base
   end
 end
 ```
+
+You're done! Now every time a PJAX request is made, the Glimpse bar will update with
+the data of the PJAX request.
 
 ## Available Glimpse views
 
