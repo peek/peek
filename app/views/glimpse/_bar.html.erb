@@ -1,3 +1,4 @@
+<% if Glimpse.enabled? %>
 <div id="glimpse">
   <div class="wrapper">
     <% Glimpse.views.each do |view| %>
@@ -5,3 +6,4 @@
     <% end %>
   </div>
 </div>
+<% end %>

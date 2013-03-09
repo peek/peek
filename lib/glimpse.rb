@@ -7,6 +7,10 @@ Dir[File.join(File.dirname(__FILE__), 'glimpse', 'views', '*.rb')].each do |view
 end
 
 module Glimpse
+  def self.enabled?
+    Rails.env.development?
+  end
+
   def self.views
     @views.collect { |klass, options| klass.new(options) }.select(&:enabled?)
   end
