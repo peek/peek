@@ -18,7 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Glimpse.view Glimpse::Git, :github => 'github/hire'
+Glimpse.view Glimpse::NavigationTime
+Glimpse.view Glimpse::Unicorn
+Glimpse.view Glimpse::ActiveRecord
+Glimpse.view Glimpse::Redis
+```
 
 ## Contributing
 
