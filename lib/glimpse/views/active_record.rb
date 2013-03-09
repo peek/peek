@@ -21,7 +21,7 @@ module Glimpse
       end
 
       def formatted_duration
-        "%.2f" % (duration * 1000)
+        "%.2fms" % (duration * 1000)
       end
 
       def results
