@@ -1,8 +1,8 @@
 updatePerformanceBar = ->
-  glimpse_performance = $('#glimpse_performance')
+  glimpsePerformance = $('#glimpse-performance')
   $('#glimpse [data-defer-to]').each ->
     deferKey = $(this).data 'defer-to'
-    data = glimpse_performance.data deferKey
+    data = glimpsePerformance.data deferKey
     $(this).text data
 
 $(document).on 'pjax:end', updatePerformanceBar
