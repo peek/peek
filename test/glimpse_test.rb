@@ -8,6 +8,10 @@ class Staff < Glimpse::Views::View
   def username
     @username
   end
+
+  def enabled?
+    !!@username
+  end
 end
 
 describe Glimpse do
@@ -21,7 +25,7 @@ describe Glimpse do
     end
 
     it "should be able to append views" do
-      Glimpse.view Staff
+      Glimpse.view Staff, :username => 'dewski'
       assert_kind_of Staff, Glimpse.views.first
     end
 
@@ -30,6 +34,11 @@ describe Glimpse do
       @staff = Glimpse.views.first
       assert_kind_of Staff, @staff
       assert_equal 'dewski', @staff.username
+    end
+
+    it "should only return enabled views" do
+      Glimpse.view Staff, :username => false
+      assert_equal [], Glimpse.views
     end
   end
 end

@@ -8,7 +8,7 @@ end
 
 module Glimpse
   def self.views
-    @views.collect { |klass, options| klass.new(options) }
+    @views.collect { |klass, options| klass.new(options) }.select(&:enabled?)
   end
 
   def self.view(klass, options = {})
