@@ -1,1 +1,3 @@
-<%= view.branch_name %> <a href="<%= view.compare_url %>" target="_blank"><%= view.sha %></a>
+<div class="bucket">
+  <%= view.branch_name %> <span class="hidden"><a href="<%= view.compare_url %>" target="_blank"><%= view.sha[0..6] %></a></span>
+</div>
