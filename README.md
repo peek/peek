@@ -125,6 +125,21 @@ end
 You're done! Now every time a PJAX request is made, the Glimpse bar will update with
 the data of the PJAX request.
 
+## Access Control
+
+You probably don't want to give this data to ALL your users. So by default Glimpse
+only shows up in development or staging environments. If you'd like to restrict Glimpse
+to a select few users, you can do so by overriding the `glimpse_enabled?` guard in
+ApplicationController.
+
+```ruby
+class ApplicationController < ActionController::Base
+  def glimpse_enabled?
+    current_user.staff?
+  end
+end
+```
+
 ## Available Glimpse views
 
 - [glimpse-dalli](https://github.com/dewski/glimpse-dalli)
