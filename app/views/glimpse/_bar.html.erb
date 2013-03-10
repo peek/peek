@@ -1,4 +1,4 @@
-<% if Glimpse.enabled? %>
+<% if glimpse_enabled? %>
 <div id="glimpse" class="<%= Glimpse.env %><%= ' disabled' if cookies[:glimpse] == 'false' %>">
   <div class="wrapper">
     <% Glimpse.views.each do |view| %>

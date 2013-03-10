@@ -1,3 +1,4 @@
+<% if glimpse_enabled? %>
 <span id="glimpse-results" class="hidden"
   <% Glimpse.views.each do |view| %>
     <% view.results.each do |key, value| %>
@@ -6,3 +7,4 @@
   <% end %>
 >
 </span>
+<% end %>
