@@ -19,6 +19,14 @@ module Glimpse
         self.class.to_s.split('::').last.underscore.gsub(/\_/, '-')
       end
 
+      def dom_id
+        "glimpse-view-#{defer_key}"
+      end
+
+      def context
+        {}
+      end
+
       def results
         {}
       end

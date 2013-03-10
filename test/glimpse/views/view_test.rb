@@ -11,6 +11,18 @@ describe Glimpse::Views::View do
     end
   end
 
+  describe "dom_id" do
+    it "should return correct dom_id" do
+      assert_equal 'glimpse-view-view', @view.dom_id
+    end
+  end
+
+  describe "defer_key" do
+    it "should return correct defer_key" do
+      assert_equal 'view', @view.defer_key
+    end
+  end
+
   describe "toggling off and on" do
     it "should be enabled by default" do
       assert @view.enabled?
