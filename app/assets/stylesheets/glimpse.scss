@@ -55,4 +55,13 @@
   strong {
     color: #fff;
   }
+
+  .view {
+    margin-right: 15px;
+    float: left;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
