@@ -1,4 +1,3 @@
-#= require glimpse/vendor/jquery.cookies
 #= require glimpse/vendor/jquery.tipsy
 
 updatePerformanceBar = ->
@@ -19,9 +18,13 @@ toggleBar = (event) ->
   return if $(event.target).is ':input'
 
   if event.keyCode == 96
-    $('#glimpse').toggleClass 'disabled'
-    enable = $.cookie('glimpse') == 'false'
-    $.cookie('glimpse', enable)
+    wrapper = $('#glimpse')
+    if wrapper.hasClass 'disabled'
+      wrapper.removeClass 'disabled'
+      document.cookie = "glimpse=true; path=/";
+    else
+      wrapper.addClass 'disabled'
+      document.cookie = "glimpse=false; path=/";
 
 $(document).on 'keypress', toggleBar
 
