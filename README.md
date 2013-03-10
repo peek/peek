@@ -127,13 +127,14 @@ the data of the PJAX request.
 
 ## Available Glimpse views
 
+- [glimpse-dalli](https://github.com/dewski/glimpse-dalli)
 - [glimpse-git](https://github.com/dewski/glimpse-git)
 - [glimpse-mongo](https://github.com/dewski/glimpse-mongo)
 - [glimpse-mysql2](https://github.com/dewski/glimpse-mysql2)
 - [glimpse-pg](https://github.com/dewski/glimpse-pg)
 - [glimpse-redis](https://github.com/dewski/glimpse-redis)
-- Navigation Time
-- Unicorn
+- Navigation Time :soon:
+- Unicorn :soon:
 
 ## Contributing
 
