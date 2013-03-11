@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/dewski/glimpse.png?branch=master)](https://travis-ci.org/dewski/glimpse)
 
-Provide a glimpse into your Rails application. 
+Provide a glimpse into your Rails application.
 
 ## Installation
 
@@ -20,17 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-Run the Rails generator to get Glimpse up and included into your project:
-
-```
-rails generate glimpse:install
-```
-
-This will create a file at `config/initializers/glimpse.rb` which will give you
-example views to include into your Glimpse bar.
-
-Feel free to pick and choose from the list or create your own. The order they
-are added to Glimpse, the order they will appear in your bar.
+To pick which views you want to see in your Glimpse bar, just create a file at
+`config/initializers/glimpse.rb` that has a list of the views you'd like to see:
 
 ```ruby
 Glimpse.into Glimpse::Views::Git, :nwo => 'github/janky'
@@ -39,7 +30,10 @@ Glimpse.into Glimpse::Views::Mysql2
 Glimpse.into Glimpse::Views::Redis
 ```
 
-To render the Glimpse bar in your application just add the following snippet
+Feel free to pick and choose from the list or create your own. The order they
+are added to Glimpse, the order they will appear in your bar.
+
+Next, to render the Glimpse bar in your application just add the following snippet
 just before the opening `<body>` tag in your application layout.
 
 ```erb
@@ -83,7 +77,7 @@ It will look something like:
 ```
 
 Now that you have the partials in your application, you will need to include the
-assets required to make everything :sparkles:
+CSS and JS that help make Glimpse work :sparkles:
 
 In `app/assets/stylesheets/application.scss`:
 
@@ -99,13 +93,16 @@ In `app/assets/javascripts/application.coffee`:
 #= require glimpse
 ```
 
+Note: Each additional view my have their own CSS and JS you need to require.
+
 ## Using Glimpse with PJAX
 
-When using PJAX requests won't render default application layout which ends
-up not including the required results partial. It's fairly simple to work around
-if you're using the [pjax_rails](https://github.com/rails/pjax_rails) gem.
+When using PJAX in your application, by default requests won't render the
+application layout which ends up not including the required results partial.
+It's fairly simple to get this working with PJAX if you're using the
+[pjax_rails](https://github.com/rails/pjax_rails) gem.
 
-Create a new layout at `app/views/layouts/pjax.html.erb`:
+Create a new layout at `app/views/layouts/glimpse.html.erb`:
 
 ```erb
 <%= yield %>
@@ -117,13 +114,13 @@ Now you'll just need use the PJAX layout:
 ```ruby
 class ApplicationController < ActionController::Base
   def pjax_layout
-    'pjax'
+    'glimpse'
   end
 end
 ```
 
-You're done! Now every time a PJAX request is made, the Glimpse bar will update with
-the data of the PJAX request.
+You're done! Now every time a PJAX request is made, the Glimpse bar will update
+with the Glimpse results of the PJAX request.
 
 ## Access Control
 
@@ -140,7 +137,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-## Available Glimpse views
+## Available Glimpse items
 
 - [glimpse-dalli](https://github.com/dewski/glimpse-dalli)
 - [glimpse-git](https://github.com/dewski/glimpse-git)
