@@ -155,6 +155,8 @@ end
 - Navigation Time :soon:
 - Unicorn :soon:
 
+Feel free to submit a Pull Request adding your own Glimpse item to this list.
+
 ## Creating your own Glimpse item
 
 Each Glimpse item is a self contained Rails engine which gives you the power to
