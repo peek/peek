@@ -98,7 +98,8 @@ In `app/assets/javascripts/application.coffee`:
 #= require glimpse
 ```
 
-Note: Each additional view my have their own CSS and JS you need to require.
+Note: Each additional view my have their own CSS and JS you need to require
+which should be stated in their usage documentation.
 
 ## Using Glimpse with PJAX
 
