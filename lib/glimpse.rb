@@ -12,9 +12,9 @@ module Glimpse
   end
 
   def self.env
-    ENV['RAILS_ENV'] || ENV['RACK_ENV']
+    Rails.env
   end
-
+  
   def self.views
     @cached_views ||= if @views && @views.any?
       @views.collect { |klass, options| klass.new(options.dup) }.select(&:enabled?)
