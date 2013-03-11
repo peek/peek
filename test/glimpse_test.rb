@@ -22,10 +22,6 @@ describe Glimpse do
   end
 
   describe "env" do
-    before do
-      ENV['RACK_ENV'] ||= 'test'
-    end
-
     it "should return the current environment" do
       assert_equal 'test', Glimpse.env
     end
