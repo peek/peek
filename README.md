@@ -148,6 +148,7 @@ end
 - [glimpse-mysql2](https://github.com/dewski/glimpse-mysql2)
 - [glimpse-pg](https://github.com/dewski/glimpse-pg)
 - [glimpse-redis](https://github.com/dewski/glimpse-redis)
+- [glimpse-resque](https://github.com/dewski/glimpse-resque)
 - Navigation Time :soon:
 - Unicorn :soon:
 
