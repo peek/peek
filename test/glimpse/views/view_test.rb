@@ -23,6 +23,12 @@ describe Glimpse::Views::View do
     end
   end
 
+  describe "context" do
+    it "should return correct context_dom_id" do
+      assert_equal 'glimpse-context-view', @view.context_dom_id
+    end
+  end
+
   describe "toggling off and on" do
     it "should be enabled by default" do
       assert @view.enabled?

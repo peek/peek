@@ -40,6 +40,18 @@ module Glimpse
         self.class.to_s.split('::').last.underscore.gsub(/\_/, '-')
       end
 
+      # The context dom id that is derived from the classname.
+      #
+      # Examples:
+      #
+      #   Glimpse::Views::PerformanceBar => "glimpse-context-performance-bar"
+      #   Glimpse::Views::Resque => "glimpse-context-resque"
+      #
+      # Returns String.
+      def context_dom_id
+        "glimpse-context-#{defer_key}"
+      end
+
       # The wrapper ID for the individual view in the Glimpse bar.
       #
       # Returns String.
