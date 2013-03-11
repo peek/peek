@@ -103,7 +103,7 @@ which should be stated in their usage documentation.
 
 ## Using Glimpse with PJAX
 
-When using PJAX in your application, by default requests won't render the
+When using [PJAX](https://github.com/defunkt/jquery-pjax) in your application, by default requests won't render the
 application layout which ends up not including the required results partial.
 It's fairly simple to get this working with PJAX if you're using the
 [pjax_rails](https://github.com/rails/pjax_rails) gem.
