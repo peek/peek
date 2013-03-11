@@ -45,7 +45,7 @@ just after the opening `<body>` tag in your application layout.
 <%= render 'glimpse/bar' %>
 ```
 
-It will look something like:
+It will look like:
 
 ```erb
 <html>
@@ -63,10 +63,10 @@ Some Glimpse views require the view to render before data is collected and can
 be presented, ie: the number of MySQL queries ran on the page and how
 long it took.
 
-For this to work, you need to include the performance partial at the end of your
+For this to work, you need to include the `glimpse/results` partial at the end of your
 application layout.
 
-It will look something like:
+It will look like:
 
 ```erb
 <html>
@@ -82,7 +82,7 @@ It will look something like:
 ```
 
 Now that you have the partials in your application, you will need to include the
-CSS and JS that help make Glimpse work :sparkles:
+CSS and JS that help make Glimpse :sparkles:
 
 In `app/assets/stylesheets/application.scss`:
 
