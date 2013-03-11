@@ -39,7 +39,7 @@ Feel free to pick and choose from the list or create your own. The order they
 are added to Glimpse, the order they will appear in your bar.
 
 Next, to render the Glimpse bar in your application just add the following snippet
-just before the opening `<body>` tag in your application layout.
+just after the opening `<body>` tag in your application layout.
 
 ```erb
 <%= render 'glimpse/bar' %>
