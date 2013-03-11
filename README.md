@@ -6,6 +6,9 @@ Provide a glimpse into your Rails application.
 
 ![Preview](https://f.cloud.github.com/assets/79995/244991/03cee1fa-8a74-11e2-8e33-283cf1298a60.png)
 
+This was originally built at GitHub to help us get insight into what's going
+on, this is just an extraction so other Rails applications can have the same.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -150,6 +153,17 @@ end
 - [glimpse-resque](https://github.com/dewski/glimpse-resque)
 - Navigation Time :soon:
 - Unicorn :soon:
+
+## Creating your own Glimpse item
+
+Each Glimpse item is a self contained Rails engine which gives you the power to
+use all features of Ruby on Rails to dig in deep within your application and
+report it back to the Glimpse bar. A Glimpse item is just a custom class that
+is responsible for fetching and building the data that should be reported back
+to the user.
+
+There are still some docs to be written, but if you'd like to checkout a simple
+example of how to create your own, just checkout [glimpse-git](https://github.com/dewski/glimpse-git).
 
 ## Contributing
 
