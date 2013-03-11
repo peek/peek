@@ -4,6 +4,8 @@
 
 Provide a glimpse into your Rails application.
 
+![Preview](https://f.cloud.github.com/assets/79995/244991/03cee1fa-8a74-11e2-8e33-283cf1298a60.png)
+
 ## Installation
 
 Add this line to your application's Gemfile:
