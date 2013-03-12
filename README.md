@@ -152,6 +152,7 @@ end
 - [glimpse-pg](https://github.com/dewski/glimpse-pg)
 - [glimpse-redis](https://github.com/dewski/glimpse-redis)
 - [glimpse-resque](https://github.com/dewski/glimpse-resque)
+- [glimpse-sidekiq](https://github.com/suranyami/glimpse-sidekiq)
 - Navigation Time :soon:
 - Unicorn :soon:
 
