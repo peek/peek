@@ -17,7 +17,7 @@ initializeTipsy = ->
 toggleBar = (event) ->
   return if $(event.target).is ':input'
 
-  if event.keyCode == 96
+  if event.keyCode == 96 && !event.metaKey
     wrapper = $('#glimpse')
     if wrapper.hasClass 'disabled'
       wrapper.removeClass 'disabled'
