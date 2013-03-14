@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Provide a glimpse into your Rails application.}
   gem.summary       = %q{Provide a glimpse into your Rails application.}
   gem.homepage      = 'https://github.com/dewski/glimpse'
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
