@@ -9,3 +9,8 @@
 # 0.0.3
 
 - Change the scope of the .tipsy selector as it's inserted outside of the Glimpse div.
+
+# 0.0.4
+
+- Don't capture ` being pressed when in combination with `cmd`
+- Support for [Turbolinks](https://github.com/rails/turbolinks)
