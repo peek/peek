@@ -128,6 +128,10 @@ end
 You're done! Now every time a PJAX request is made, the Glimpse bar will update
 with the Glimpse results of the PJAX request.
 
+## Using Glimpse with Turbolinks
+
+It just works.
+
 ## Access Control
 
 You probably don't want to give this data to ALL your users. So by default Glimpse
