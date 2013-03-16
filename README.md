@@ -153,11 +153,11 @@ end
 - [glimpse-git](https://github.com/dewski/glimpse-git)
 - [glimpse-mongo](https://github.com/dewski/glimpse-mongo)
 - [glimpse-mysql2](https://github.com/dewski/glimpse-mysql2)
+- [glimpse-performance_bar](https://github.com/dewski/glimpse-performance_bar)
 - [glimpse-pg](https://github.com/dewski/glimpse-pg)
 - [glimpse-redis](https://github.com/dewski/glimpse-redis)
 - [glimpse-resque](https://github.com/dewski/glimpse-resque)
 - [glimpse-sidekiq](https://github.com/suranyami/glimpse-sidekiq)
-- Navigation Time :soon:
 - Unicorn :soon:
 
 Feel free to submit a Pull Request adding your own Glimpse item to this list.
