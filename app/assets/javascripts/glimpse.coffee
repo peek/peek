@@ -36,8 +36,8 @@ $(document).on 'pjax:end', ->
   $(this).trigger 'glimpse:update'
 
 # Also listen to turbolinks page change event
-jQuery(window).on 'page:change', ->
-  $(document).trigger 'glimpse:update'
+$(document).on 'page:change', ->
+  $(this).trigger 'glimpse:update'
 
 $ ->
   $(this).trigger 'glimpse:update'
