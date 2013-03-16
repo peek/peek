@@ -35,5 +35,9 @@ $(document).on 'glimpse:update', initializeTipsy
 $(document).on 'pjax:end', ->
   $(this).trigger 'glimpse:update'
 
+# Also listen to turbolinks page change event
+jQuery(window).on 'page:change', ->
+  $(document).trigger 'glimpse:update'
+
 $ ->
   $(this).trigger 'glimpse:update'
