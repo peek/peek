@@ -158,6 +158,7 @@ end
 - [glimpse-redis](https://github.com/dewski/glimpse-redis)
 - [glimpse-resque](https://github.com/dewski/glimpse-resque)
 - [glimpse-sidekiq](https://github.com/suranyami/glimpse-sidekiq)
+- [glimpse-svn](https://github.com/neilco/glimpse-svn)
 - Unicorn :soon:
 
 Feel free to submit a Pull Request adding your own Glimpse item to this list.
