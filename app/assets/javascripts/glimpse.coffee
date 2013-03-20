@@ -8,7 +8,7 @@ updatePerformanceBar = ->
     $(this).text data
 
 initializeTipsy = ->
-  $('#glimpse .tooltip').each ->
+  $('#glimpse .glimpse-tooltip, #glimpse .tooltip').each ->
     el = $(this)
     gravity = if el.hasClass('rightwards') then 'w' else 'n'
     gravity = if el.hasClass('leftwards') then 'e' else gravity
