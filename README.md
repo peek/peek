@@ -33,6 +33,7 @@ Glimpse.into Glimpse::Views::Git, :nwo => 'github/janky'
 Glimpse.into Glimpse::Views::Mongo
 Glimpse.into Glimpse::Views::Mysql2
 Glimpse.into Glimpse::Views::Redis
+Glimpse.into Glimpse::Views::Dalli
 ```
 
 Feel free to pick and choose from the list or create your own. The order they
