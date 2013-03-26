@@ -30,7 +30,6 @@ To pick which views you want to see in your Glimpse bar, just create a file at
 
 ```ruby
 Glimpse.into Glimpse::Views::Git, :nwo => 'github/janky'
-Glimpse.into Glimpse::Views::Mongo
 Glimpse.into Glimpse::Views::Mysql2
 Glimpse.into Glimpse::Views::Redis
 Glimpse.into Glimpse::Views::Dalli
