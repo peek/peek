@@ -175,6 +175,15 @@ There are still some docs to be written, but if you'd like to checkout a simple
 example of how to create your own, just checkout [glimpse-git](https://github.com/dewski/glimpse-git).
 To just look at an example view, there is [Glimpse::Views::Git](https://github.com/dewski/glimpse-git/blob/master/lib/glimpse/views/git.rb).
 
+### Using Glimpse with Spork
+
+For best results with Spork, add this to your `prefork` block
+anytime before your environment is loaded:
+
+```ruby
+Spork.trap_class_method(Glimpse, :setup)
+```
+
 ## Contributing
 
 1. Fork it

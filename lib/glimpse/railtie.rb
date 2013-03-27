@@ -12,7 +12,7 @@ module Glimpse
 
     initializer 'glimpse.include_controller_helpers' do
       config.to_prepare do
-        ApplicationController.send(:include, Glimpse::ControllerHelpers)
+        Glimpse.setup
       end
     end
   end
