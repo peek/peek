@@ -154,7 +154,7 @@ end
 - [peek-mongo](https://github.com/peek/peek-mongo)
 - [peek-mysql2](https://github.com/peek/peek-mysql2)
 - [peek-performance_bar](https://github.com/peek/peek-performance_bar)
-- [glimppeekse-pg](https://github.com/peek/peek-pg)
+- [peek-pg](https://github.com/peek/peek-pg)
 - [peek-redis](https://github.com/peek/peek-redis)
 - [peek-resque](https://github.com/peek/peek-resque)
 - [glimpse-sidekiq](https://github.com/suranyami/glimpse-sidekiq)
