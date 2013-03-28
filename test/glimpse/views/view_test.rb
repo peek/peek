@@ -1,19 +1,19 @@
 require 'test_helper'
 
-describe Glimpse::Views::View do
+describe Peek::Views::View do
   before do
-    @view = Glimpse::Views::View.new
+    @view = Peek::Views::View.new
   end
 
   describe "partial path" do
     it "should return correct partial class" do
-      assert_equal 'glimpse/views/view', @view.partial_path
+      assert_equal 'peek/views/view', @view.partial_path
     end
   end
 
   describe "dom_id" do
     it "should return correct dom_id" do
-      assert_equal 'glimpse-view-view', @view.dom_id
+      assert_equal 'peek-view-view', @view.dom_id
     end
   end
 
@@ -25,7 +25,7 @@ describe Glimpse::Views::View do
 
   describe "context" do
     it "should return correct context_dom_id" do
-      assert_equal 'glimpse-context-view', @view.context_dom_id
+      assert_equal 'peek-context-view', @view.context_dom_id
     end
   end
 

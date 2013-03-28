@@ -1,6 +1,6 @@
 ENV['RAILS_ENV'] = "test"
 
-require 'glimpse'
+require 'peek'
 
 require 'minitest/autorun'
 

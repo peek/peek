@@ -101,7 +101,7 @@ In `app/assets/javascripts/application.coffee`:
 Note: Each additional view my have their own CSS and JS you need to require
 which should be stated in their usage documentation.
 
-## Using Glimpse with PJAX
+## Using Peek with PJAX
 
 When using [PJAX](https://github.com/defunkt/jquery-pjax) in your application, by default requests won't render the
 application layout which ends up not including the required results partial.
@@ -147,7 +147,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-## Available Glimpse items
+## Available Peek items
 
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-git](https://github.com/peek/peek-git)
