@@ -1,8 +1,8 @@
-# Glimpse
+# Peek
 
-[![Build Status](https://travis-ci.org/dewski/glimpse.png?branch=master)](https://travis-ci.org/dewski/glimpse)
+[![Build Status](https://travis-ci.org/peek/peek.png?branch=master)](https://travis-ci.org/peek/peek)
 
-Provide a glimpse into your Rails application.
+Take a peek into your Rails application.
 
 ![Preview](https://f.cloud.github.com/assets/79995/244991/03cee1fa-8a74-11e2-8e33-283cf1298a60.png)
 
@@ -13,7 +13,7 @@ on, this is just an extraction so other Rails applications can have the same.
 
 Add this line to your application's Gemfile:
 
-    gem 'glimpse'
+    gem 'peek'
 
 And then execute:
 
@@ -21,28 +21,28 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install glimpse
+    $ gem install peek
 
 ## Usage
 
-To pick which views you want to see in your Glimpse bar, just create a file at
-`config/initializers/glimpse.rb` that has a list of the views you'd like to see:
+To pick which views you want to see in your Peek bar, just create a file at
+`config/initializers/peek.rb` that has a list of the views you'd like to see:
 
 ```ruby
-Glimpse.into Glimpse::Views::Git, :nwo => 'github/janky'
-Glimpse.into Glimpse::Views::Mysql2
-Glimpse.into Glimpse::Views::Redis
-Glimpse.into Glimpse::Views::Dalli
+Peek.into Peek::Views::Git, :nwo => 'github/janky'
+Peek.into Peek::Views::Mysql2
+Peek.into Peek::Views::Redis
+Peek.into Peek::Views::Dalli
 ```
 
 Feel free to pick and choose from the list or create your own. The order they
-are added to Glimpse, the order they will appear in your bar.
+are added to Peek, the order they will appear in your bar.
 
-Next, to render the Glimpse bar in your application just add the following snippet
+Next, to render the Peek bar in your application just add the following snippet
 just after the opening `<body>` tag in your application layout.
 
 ```erb
-<%= render 'glimpse/bar' %>
+<%= render 'peek/bar' %>
 ```
 
 It will look like:
@@ -53,17 +53,17 @@ It will look like:
     <title>Application</title>
   </head>
   <body>
-    <%= render 'glimpse/bar' %>
+    <%= render 'peek/bar' %>
     <%= yield %>
   </body>
 </html>
 ```
 
-Some Glimpse views require the view to render before data is collected and can
+Some Peek views require the view to render before data is collected and can
 be presented, ie: the number of MySQL queries ran on the page and how
 long it took.
 
-For this to work, you need to include the `glimpse/results` partial at the end of your
+For this to work, you need to include the `peek/results` partial at the end of your
 application layout.
 
 It will look like:
@@ -74,20 +74,20 @@ It will look like:
     <title>Application</title>
   </head>
   <body>
-    <%= render 'glimpse/bar' %>
+    <%= render 'peek/bar' %>
     <%= yield %>
-    <%= render 'glimpse/results' %>
+    <%= render 'peek/results' %>
   </body>
 </html>
 ```
 
 Now that you have the partials in your application, you will need to include the
-CSS and JS that help make Glimpse :sparkles:
+CSS and JS that help make Peek :sparkles:
 
 In `app/assets/stylesheets/application.scss`:
 
 ```scss
-//= require glimpse
+//= require peek
 ```
 
 In `app/assets/javascripts/application.coffee`:
@@ -95,7 +95,7 @@ In `app/assets/javascripts/application.coffee`:
 ```coffeescript
 #= require jquery
 #= require jquery_ujs
-#= require glimpse
+#= require peek
 ```
 
 Note: Each additional view my have their own CSS and JS you need to require
@@ -108,11 +108,11 @@ application layout which ends up not including the required results partial.
 It's fairly simple to get this working with PJAX if you're using the
 [pjax_rails](https://github.com/rails/pjax_rails) gem.
 
-Create a new layout at `app/views/layouts/glimpse.html.erb`:
+Create a new layout at `app/views/layouts/peek.html.erb`:
 
 ```erb
 <%= yield %>
-<%= render 'glimpse/results' %>
+<%= render 'peek/results' %>
 ```
 
 Now you'll just need use the PJAX layout:
@@ -120,28 +120,28 @@ Now you'll just need use the PJAX layout:
 ```ruby
 class ApplicationController < ActionController::Base
   def pjax_layout
-    'glimpse'
+    'peek'
   end
 end
 ```
 
-You're done! Now every time a PJAX request is made, the Glimpse bar will update
-with the Glimpse results of the PJAX request.
+You're done! Now every time a PJAX request is made, the Peek bar will update
+with the Peek results of the PJAX request.
 
-## Using Glimpse with Turbolinks
+## Using Peek with Turbolinks
 
 It just works.
 
 ## Access Control
 
-You probably don't want to give this data to ALL your users. So by default Glimpse
-only shows up in development or staging environments. If you'd like to restrict Glimpse
-to a select few users, you can do so by overriding the `glimpse_enabled?` guard in
+You probably don't want to give this data to ALL your users. So by default Peek
+only shows up in development or staging environments. If you'd like to restrict Peek
+to a select few users, you can do so by overriding the `peek_enabled?` guard in
 ApplicationController.
 
 ```ruby
 class ApplicationController < ActionController::Base
-  def glimpse_enabled?
+  def peek_enabled?
     current_user.staff?
   end
 end
@@ -149,39 +149,39 @@ end
 
 ## Available Glimpse items
 
-- [glimpse-dalli](https://github.com/dewski/glimpse-dalli)
-- [glimpse-git](https://github.com/dewski/glimpse-git)
-- [glimpse-mongo](https://github.com/dewski/glimpse-mongo)
-- [glimpse-mysql2](https://github.com/dewski/glimpse-mysql2)
-- [glimpse-performance_bar](https://github.com/dewski/glimpse-performance_bar)
-- [glimpse-pg](https://github.com/dewski/glimpse-pg)
-- [glimpse-redis](https://github.com/dewski/glimpse-redis)
-- [glimpse-resque](https://github.com/dewski/glimpse-resque)
+- [peek-dalli](https://github.com/peek/peek-dalli)
+- [peek-git](https://github.com/peek/peek-git)
+- [peek-mongo](https://github.com/peek/peek-mongo)
+- [peek-mysql2](https://github.com/peek/peek-mysql2)
+- [peek-performance_bar](https://github.com/peek/peek-performance_bar)
+- [glimppeekse-pg](https://github.com/peek/peek-pg)
+- [peek-redis](https://github.com/peek/peek-redis)
+- [peek-resque](https://github.com/peek/peek-resque)
 - [glimpse-sidekiq](https://github.com/suranyami/glimpse-sidekiq)
 - [glimpse-svn](https://github.com/neilco/glimpse-svn)
 - Unicorn :soon:
 
-Feel free to submit a Pull Request adding your own Glimpse item to this list.
+Feel free to submit a Pull Request adding your own Peek item to this list.
 
-## Creating your own Glimpse item
+## Creating your own Peek item
 
-Each Glimpse item is a self contained Rails engine which gives you the power to
+Each Peek item is a self contained Rails engine which gives you the power to
 use all features of Ruby on Rails to dig in deep within your application and
-report it back to the Glimpse bar. A Glimpse item is just a custom class that
+report it back to the Peek bar. A Peek item is just a custom class that
 is responsible for fetching and building the data that should be reported back
 to the user.
 
 There are still some docs to be written, but if you'd like to checkout a simple
-example of how to create your own, just checkout [glimpse-git](https://github.com/dewski/glimpse-git).
-To just look at an example view, there is [Glimpse::Views::Git](https://github.com/dewski/glimpse-git/blob/master/lib/glimpse/views/git.rb).
+example of how to create your own, just checkout [peek-git](https://github.com/peek/peek-git).
+To just look at an example view, there is [Peek::Views::Git](https://github.com/dewski/peek-git/blob/master/lib/peek/views/git.rb).
 
-### Using Glimpse with Spork
+### Using Peek with Spork
 
 For best results with Spork, add this to your `prefork` block
 anytime before your environment is loaded:
 
 ```ruby
-Spork.trap_class_method(Glimpse, :setup)
+Spork.trap_class_method(Peek, :setup)
 ```
 
 ## Contributing

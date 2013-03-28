@@ -4,7 +4,7 @@ require 'rake/testtask'
 desc 'Default: run tests'
 task :default => :test
 
-desc 'Run Glimpse tests.'
+desc 'Run Peek tests.'
 Rake::TestTask.new do |t|
   t.libs << 'lib'
   t.libs << 'test'

@@ -1,14 +1,14 @@
-#= require glimpse/vendor/jquery.tipsy
+#= require peek/vendor/jquery.tipsy
 
 updatePerformanceBar = ->
-  glimpseResults = $('#glimpse-results')
-  $('#glimpse [data-defer-to]').each ->
+  peekResults = $('#peek-results')
+  $('#peek [data-defer-to]').each ->
     deferKey = $(this).data 'defer-to'
-    data = glimpseResults.data deferKey
+    data = peekResults.data deferKey
     $(this).text data
 
 initializeTipsy = ->
-  $('#glimpse .glimpse-tooltip, #glimpse .tooltip').each ->
+  $('#peek .peek-tooltip, #peek .tooltip').each ->
     el = $(this)
     gravity = if el.hasClass('rightwards') then 'w' else 'n'
     gravity = if el.hasClass('leftwards') then 'e' else gravity
@@ -18,26 +18,26 @@ toggleBar = (event) ->
   return if $(event.target).is ':input'
 
   if event.keyCode == 96 && !event.metaKey
-    wrapper = $('#glimpse')
+    wrapper = $('#peek')
     if wrapper.hasClass 'disabled'
       wrapper.removeClass 'disabled'
-      document.cookie = "glimpse=true; path=/";
+      document.cookie = "peek=true; path=/";
     else
       wrapper.addClass 'disabled'
-      document.cookie = "glimpse=false; path=/";
+      document.cookie = "peek=false; path=/";
 
 $(document).on 'keypress', toggleBar
 
-$(document).on 'glimpse:update', updatePerformanceBar
-$(document).on 'glimpse:update', initializeTipsy
+$(document).on 'peek:update', updatePerformanceBar
+$(document).on 'peek:update', initializeTipsy
 
 # Fire the event for our own listeners.
 $(document).on 'pjax:end', ->
-  $(this).trigger 'glimpse:update'
+  $(this).trigger 'peek:update'
 
 # Also listen to turbolinks page change event
 $(document).on 'page:change', ->
-  $(this).trigger 'glimpse:update'
+  $(this).trigger 'peek:update'
 
 $ ->
-  $(this).trigger 'glimpse:update'
+  $(this).trigger 'peek:update'

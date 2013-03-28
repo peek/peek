@@ -1,6 +1,6 @@
-//= require glimpse/vendor/tipsy
+//= require peek/vendor/tipsy
 
-#glimpse {
+#peek {
   background: #000;
   height: 35px;
   line-height: 35px;
@@ -17,15 +17,15 @@
   }
 
   &.production {
-    background: image-url('glimpse/bar/production.gif') repeat 0 0;
+    background: image-url('peek/bar/production.gif') repeat 0 0;
   }
 
   &.staging {
-    background: image-url('glimpse/bar/staging.gif') repeat 0 0;
+    background: image-url('peek/bar/staging.gif') repeat 0 0;
   }
 
   &.development {
-    background: image-url('glimpse/bar/development.gif') repeat 0 0;
+    background: image-url('peek/bar/development.gif') repeat 0 0;
   }
 
   .wrapper {

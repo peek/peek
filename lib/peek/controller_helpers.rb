@@ -1,15 +1,15 @@
-module Glimpse
+module Peek
   module ControllerHelpers
     extend ActiveSupport::Concern
 
     included do
-      helper_method :glimpse_enabled?
+      helper_method :peek_enabled?
     end
 
     protected
 
-    def glimpse_enabled?
-      Glimpse.enabled?      
+    def peek_enabled?
+      Peek.enabled?      
     end
   end
 end

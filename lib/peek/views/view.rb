@@ -1,4 +1,4 @@
-module Glimpse
+module Peek
   module Views
     class View
       def initialize(options = {})
@@ -16,11 +16,11 @@ module Glimpse
         true
       end
 
-      # The path to the partial that will be rendered to the Glimpse bar.
+      # The path to the partial that will be rendered to the Peek bar.
       #
       # Examples:
       #
-      #   Glimpse::Views::PerformanceBar.partial_path => "glimpse/views/performance_bar"
+      #   Peek::Views::PerformanceBar.partial_path => "peek/views/performance_bar"
       #   CustomResque.partial_path => "performance_bar"
       #
       # Returns String.
@@ -32,8 +32,8 @@ module Glimpse
       #
       # Examples:
       #
-      #   Glimpse::Views::PerformanceBar => "performance-bar"
-      #   Glimpse::Views::Resque => "resque"
+      #   Peek::Views::PerformanceBar => "performance-bar"
+      #   Peek::Views::Resque => "resque"
       #
       # Returns String.
       def defer_key
@@ -44,19 +44,19 @@ module Glimpse
       #
       # Examples:
       #
-      #   Glimpse::Views::PerformanceBar => "glimpse-context-performance-bar"
-      #   Glimpse::Views::Resque => "glimpse-context-resque"
+      #   Peek::Views::PerformanceBar => "peek-context-performance-bar"
+      #   Peek::Views::Resque => "peek-context-resque"
       #
       # Returns String.
       def context_dom_id
-        "glimpse-context-#{defer_key}"
+        "peek-context-#{defer_key}"
       end
 
-      # The wrapper ID for the individual view in the Glimpse bar.
+      # The wrapper ID for the individual view in the Peek bar.
       #
       # Returns String.
       def dom_id
-        "glimpse-view-#{defer_key}"
+        "peek-view-#{defer_key}"
       end
 
       # Additional context for any view to render tooltips for.
@@ -71,7 +71,7 @@ module Glimpse
       end
 
       # The data results that are inserted at the end of the request for use in
-      # deferred placeholders in the Glimpse the bar.
+      # deferred placeholders in the Peek the bar.
       #
       # Returns Hash.
       def results

@@ -1,6 +1,6 @@
-<% if glimpse_enabled? %>
-<span id="glimpse-results" class="hidden"
-  <% Glimpse.views.each do |view| %>
+<% if peek_enabled? %>
+<span id="peek-results" class="hidden"
+  <% Peek.views.each do |view| %>
     <% view.results.each do |key, value| %>
     data-<%= view.defer_key %>-<%= key %>="<%= value %>"
     <% end %>
@@ -8,7 +8,7 @@
 >
 </span>
 
-<% Glimpse.views.each do |view| %>
+<% Peek.views.each do |view| %>
   <% if view.context? %>
     <span id="<%= view.context_dom_id %>" data-context='<%= raw(view.context.to_json) %>'></span>
   <% end %>

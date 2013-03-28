@@ -1,12 +1,12 @@
-require 'glimpse/version'
+require 'peek/version'
 require 'rails'
 
-require 'glimpse/views/view'
-Dir[File.join(File.dirname(__FILE__), 'glimpse', 'views', '*.rb')].each do |view|
+require 'peek/views/view'
+Dir[File.join(File.dirname(__FILE__), 'peek', 'views', '*.rb')].each do |view|
   require view
 end
 
-module Glimpse
+module Peek
   def self.enabled?
     ['development', 'staging'].include?(env)
   end
@@ -34,8 +34,8 @@ module Glimpse
   end
 
   def self.setup
-    ApplicationController.send(:include, Glimpse::ControllerHelpers)
+    ApplicationController.send(:include, Peek::ControllerHelpers)
   end
 end
 
-require 'glimpse/railtie'
+require 'peek/railtie'
