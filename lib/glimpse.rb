@@ -14,7 +14,7 @@ module Glimpse
   def self.env
     Rails.env
   end
-  
+
   def self.views
     @cached_views ||= if @views && @views.any?
       @views.collect { |klass, options| klass.new(options.dup) }.select(&:enabled?)
@@ -31,6 +31,10 @@ module Glimpse
   def self.reset
     @views = nil
     @cached_views = nil
+  end
+
+  def self.setup
+    ApplicationController.send(:include, Glimpse::ControllerHelpers)
   end
 end
 
