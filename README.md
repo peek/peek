@@ -173,7 +173,7 @@ to the user.
 
 There are still some docs to be written, but if you'd like to checkout a simple
 example of how to create your own, just checkout [peek-git](https://github.com/peek/peek-git).
-To just look at an example view, there is [Peek::Views::Git](https://github.com/dewski/peek-git/blob/master/lib/peek/views/git.rb).
+To just look at an example view, there is [Peek::Views::Git](https://github.com/peek/peek-git/blob/master/lib/peek/views/git.rb).
 
 ### Using Peek with Spork
 
