@@ -181,6 +181,7 @@ For best results with Spork, add this to your `prefork` block
 anytime before your environment is loaded:
 
 ```ruby
+require 'peek'
 Spork.trap_class_method(Peek, :setup)
 ```
 
