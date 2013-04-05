@@ -157,7 +157,7 @@ end
 - [peek-pg](https://github.com/peek/peek-pg)
 - [peek-redis](https://github.com/peek/peek-redis)
 - [peek-resque](https://github.com/peek/peek-resque)
-- [glimpse-sidekiq](https://github.com/suranyami/glimpse-sidekiq)
+- [peek-sidekiq](https://github.com/suranyami/peek-sidekiq)
 - [glimpse-svn](https://github.com/neilco/glimpse-svn)
 - Unicorn :soon:
 
