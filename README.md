@@ -159,6 +159,7 @@ end
 - [peek-resque](https://github.com/peek/peek-resque)
 - [peek-sidekiq](https://github.com/suranyami/peek-sidekiq)
 - [glimpse-svn](https://github.com/neilco/glimpse-svn)
+- [peek-faraday](https://github.com/grk/peek-faraday)
 - Unicorn :soon:
 
 Feel free to submit a Pull Request adding your own Peek item to this list.
