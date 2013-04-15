@@ -18,3 +18,7 @@
 # 0.0.5
 
 - Namespace the tooltips to the `.glimpse-tooltip` class name to not conflict with any application styles for `.tooltip`. (#18)
+
+# 0.0.6
+
+- Added Peek::Views::View#parse_options that gets called within initialize for subclasses to use to parse their options.
