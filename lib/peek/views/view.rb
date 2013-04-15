@@ -4,7 +4,16 @@ module Peek
       def initialize(options = {})
         @options = options
 
+        parse_options
         setup_subscribers
+      end
+
+      # Where any subclasses should pick and pull from @options to set any and
+      # all instance variables they like.
+      #
+      # Returns nothing.
+      def parse_options
+        # pass
       end
 
       # Conditionally enable views based on any gathered data. Helpful
