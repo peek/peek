@@ -1,5 +1,5 @@
 module Peek
-  class ResultsController < ActionController::Base
+  class ResultsController < ApplicationController
     respond_to :json
 
     def show
