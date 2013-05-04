@@ -4,9 +4,6 @@ require 'atomic'
 require 'redis'
 
 require 'peek/views/view'
-Dir[File.join(File.dirname(__FILE__), 'peek', 'views', '*.rb')].each do |view|
-  require view
-end
 require 'peek/request'
 
 module Peek
