@@ -2,7 +2,8 @@ require 'peek/controller_helpers'
 
 module Peek
   class Railtie < ::Rails::Engine
-    config.peek = Peek
+    isolate_namespace Peek
+    engine_name :peek
 
     initializer 'peek.setup_subscribers' do
       ActiveSupport.on_load(:after_initialize) do
