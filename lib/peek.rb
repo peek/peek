@@ -21,6 +21,15 @@ module Peek
   def self.request_id=(id)
     _request_id.update { id }
   end
+
+  def self.redis
+    @redis ||= Redis.new
+  end
+
+  def self.redis=(redis)
+    @redis = redis
+  end
+
   def self.enabled?
     ['development', 'staging'].include?(env)
   end
