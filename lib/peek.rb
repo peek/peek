@@ -7,6 +7,7 @@ require 'peek/views/view'
 Dir[File.join(File.dirname(__FILE__), 'peek', 'views', '*.rb')].each do |view|
   require view
 end
+require 'peek/request'
 
 module Peek
   class << self
@@ -44,14 +45,6 @@ module Peek
     else
       []
     end
-  end
-
-  def self.get(request_id)
-    redis.get("peek:requests:#{request_id}")
-  end
-
-  def self.save
-    redis.setex("peek:requests:#{request_id}", 5 * 30, results.to_json)
   end
 
   def self.results
