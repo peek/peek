@@ -1,5 +1,7 @@
 require 'peek/version'
 require 'rails'
+require 'atomic'
+require 'redis'
 
 require 'peek/views/view'
 Dir[File.join(File.dirname(__FILE__), 'peek', 'views', '*.rb')].each do |view|
