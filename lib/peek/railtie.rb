@@ -16,5 +16,12 @@ module Peek
         Peek.setup
       end
     end
+
+    initializer 'peek.persist_request_data' do
+      ActiveSupport::Notifications.subscribe('process_action.action_controller') do
+        Peek.save
+        Peek._request_id.update { '' }
+      end
+    end
   end
 end
