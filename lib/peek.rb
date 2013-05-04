@@ -9,6 +9,18 @@ Dir[File.join(File.dirname(__FILE__), 'peek', 'views', '*.rb')].each do |view|
 end
 
 module Peek
+  class << self
+    attr_accessor :_request_id
+  end
+  self._request_id = Atomic.new('')
+
+  def self.request_id
+    _request_id.get
+  end
+
+  def self.request_id=(id)
+    _request_id.update { id }
+  end
   def self.enabled?
     ['development', 'staging'].include?(env)
   end
@@ -33,6 +45,7 @@ module Peek
   def self.reset
     @views = nil
     @cached_views = nil
+    _request_id.update { '' }
   end
 
   def self.setup
