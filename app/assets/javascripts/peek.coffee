@@ -1,11 +1,13 @@
 #= require peek/vendor/jquery.tipsy
 
-updatePerformanceBar = ->
+getRequestId = ->
+  $('#peek').data 'request-id'
+
+updatePerformanceBar = (data) ->
   peekResults = $('#peek-results')
   $('#peek [data-defer-to]').each ->
     deferKey = $(this).data 'defer-to'
-    data = peekResults.data deferKey
-    $(this).text data
+    $(this).text data[deferKey]
 
 initializeTipsy = ->
   $('#peek .peek-tooltip, #peek .tooltip').each ->
@@ -26,13 +28,22 @@ toggleBar = (event) ->
       wrapper.addClass 'disabled'
       document.cookie = "peek=false; path=/";
 
+fetchRequestResults = ->
+  $.ajax '/peek/results',
+    data:
+      request_id: getRequestId()
+    success: (data, textStatus, xhr) ->
+      updatePerformanceBar data
+    error: (xhr, textStatus, error) ->
+      console.log xhr, textStatus, error
+
 $(document).on 'keypress', toggleBar
 
-$(document).on 'peek:update', updatePerformanceBar
 $(document).on 'peek:update', initializeTipsy
+$(document).on 'peek:update', fetchRequestResults
 
 # Fire the event for our own listeners.
-$(document).on 'pjax:end', ->
+$(document).on 'pjax:end', (xhr, options) ->
   $(this).trigger 'peek:update'
 
 # Also listen to turbolinks page change event
