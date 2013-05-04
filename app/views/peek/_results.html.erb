@@ -1,5 +1,6 @@
 <% if peek_enabled? %>
 <span id="peek-results" class="hidden"
+  data-request-id="<%= Peek.request_id %>"
   <% Peek.views.each do |view| %>
     <% view.results.each do |key, value| %>
     data-<%= view.defer_key %>-<%= key %>="<%= value %>"

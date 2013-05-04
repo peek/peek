@@ -1,7 +1,7 @@
 #= require peek/vendor/jquery.tipsy
 
 getRequestId = ->
-  $('#peek').data 'request-id'
+  $('#peek-results').data 'request-id'
 
 updatePerformanceBar = (data) ->
   peekResults = $('#peek-results')
