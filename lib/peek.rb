@@ -46,6 +46,30 @@ module Peek
     end
   end
 
+  def self.get(request_id)
+    redis.get("peek:requests:#{request_id}")
+  end
+
+  def self.save
+    redis.setex("peek:requests:#{request_id}", 5 * 30, results.to_json)
+  end
+
+  def self.results
+    results = Hash.new { |h, k| h[k] = {} }
+
+    views.each do |view|
+      if view.context?
+        results[view.context_dom_id] = view.context
+      end
+
+      view.results.each do |key, value|
+        results["#{view.defer_key}-#{key}"] = value
+      end
+    end
+
+    results
+  end
+
   def self.into(klass, options = {})
     @views ||= []
     @views << [klass, options]
