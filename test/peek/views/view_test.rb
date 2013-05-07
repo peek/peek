@@ -17,15 +17,15 @@ describe Peek::Views::View do
     end
   end
 
-  describe "defer_key" do
-    it "should return correct defer_key" do
-      assert_equal 'view', @view.defer_key
+  describe "key" do
+    it "should return correct key" do
+      assert_equal 'view', @view.key
     end
   end
 
   describe "context" do
-    it "should return correct context_dom_id" do
-      assert_equal 'peek-context-view', @view.context_dom_id
+    it "should return correct context_id" do
+      assert_equal 'peek-context-view', @view.context_id
     end
   end
 

@@ -25,8 +25,18 @@ Or install it yourself as:
 
 ## Usage
 
+Now that Peek is installed, you'll need to mount the engine within your `config/routes.rb`
+file:
+
+```ruby
+Some::Application.routes.draw do
+  mount Peek::Engine => '/peek'
+  root :to => 'home#show'
+end
+```
+
 To pick which views you want to see in your Peek bar, just create a file at
-`config/initializers/peek.rb` that has a list of the views you'd like to see:
+`config/initializers/peek.rb` that has a list of the views you'd like to include:
 
 ```ruby
 Peek.into Peek::Views::Git, :nwo => 'github/janky'
@@ -59,27 +69,9 @@ It will look like:
 </html>
 ```
 
-Some Peek views require the view to render before data is collected and can
-be presented, ie: the number of MySQL queries ran on the page and how
-long it took.
-
-For this to work, you need to include the `peek/results` partial at the end of your
-application layout.
-
-It will look like:
-
-```erb
-<html>
-  <head>
-    <title>Application</title>
-  </head>
-  <body>
-    <%= render 'peek/bar' %>
-    <%= yield %>
-    <%= render 'peek/results' %>
-  </body>
-</html>
-```
+Peek fetches the data collected throughout your requests by using the unique request id
+that was assigned to the request by Rails. It will call out to its own controller at
+[Peek::ResultsController](https://github.com/peek/peek/blob/master/app/assets/controllers/peek/results_controller.rb) which will render the data and be inserted into the bar.
 
 Now that you have the partials in your application, you will need to include the
 CSS and JS that help make Peek :sparkles:
@@ -101,43 +93,79 @@ In `app/assets/javascripts/application.coffee`:
 Note: Each additional view my have their own CSS and JS you need to require
 which should be stated in their usage documentation.
 
-## Using Peek with PJAX
+### Configuring the default adapter
 
-When using [PJAX](https://github.com/defunkt/jquery-pjax) in your application, by default requests won't render the
-application layout which ends up not including the required results partial.
-It's fairly simple to get this working with PJAX if you're using the
-[pjax_rails](https://github.com/rails/pjax_rails) gem.
+For Peek to work, it keeps track of all requests made in your application
+so it can report back and display that information in the Peek bar. By default
+it stores this information in memory, which is not recommended for production environments.
 
-Create a new layout at `app/views/layouts/peek.html.erb`:
+In production environments you may have application servers on multiple hosts,
+at which Peek will not be able to access the request data if it was saved in memory on
+another host. Peek provides 2 additional adapters for multi server environments.
 
-```erb
-<%= yield %>
-<%= render 'peek/results' %>
-```
+You can configure which adapter Peek uses by updating your application
+config or an individual environment config file. We'll use production as an example.
 
-Now you'll just need use the PJAX layout:
+Note: Peek does not provide the dependencies for each of these adapters. If you use these
+adapters be sure to include their dependencies in your application.
+
+- Redis - The [redis](https://github.com/redis/redis-rb) gem
+- Dalli - The [dalli](https://github.com/mperham/dalli) gem
 
 ```ruby
-class ApplicationController < ActionController::Base
-  def pjax_layout
-    'peek'
-  end
+Peeked::Application.configure do
+  # ...
+
+  # Redis with no options
+  config.peek.adapter = :redis
+
+  # Redis with options
+  config.peek.adapter = :redis, {
+    :client => Redis.new,
+    :expires_in => 60 * 30 # => 30 minutes in seconds
+  }
+
+  # Memcache with no options
+  config.peek.adapter = :memcache
+
+  # Memcache with options
+  config.peek.adapter = :memcache, {
+    :client => Dalli::Client.new,
+    :expires_in => 60 * 30 # => 30 minutes in seconds
+  }
+
+  # ...
 end
 ```
 
-You're done! Now every time a PJAX request is made, the Peek bar will update
-with the Peek results of the PJAX request.
+Peek doesn't persist the request data forever. It uses a safe 30 minute
+cache length that way data will be available if you'd like to aggregate it or
+use it for other Peek views. You can update this to be 30 seconds if you don't
+want the data to be available to stick around.
+
+## Using Peek with PJAX
+
+It just works.
 
 ## Using Peek with Turbolinks
 
 It just works.
 
+### Using Peek with Spork
+
+For best results with Spork, add this to your `prefork` block
+anytime before your environment is loaded:
+
+```ruby
+require 'peek'
+Spork.trap_class_method(Peek, :setup)
+```
+
 ## Access Control
 
-You probably don't want to give this data to ALL your users. So by default Peek
-only shows up in development or staging environments. If you'd like to restrict Peek
-to a select few users, you can do so by overriding the `peek_enabled?` guard in
-ApplicationController.
+Peek will only render in development and staging environments. If you'd
+like to whitelist a select number of users to view Peek in production you
+can override the `peek_enabled?` guard in `ApplicationController`:
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -147,7 +175,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-## Available Peek items
+## Available Peek views
 
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-git](https://github.com/peek/peek-git)
@@ -176,16 +204,6 @@ to the user.
 There are still some docs to be written, but if you'd like to checkout a simple
 example of how to create your own, just checkout [peek-git](https://github.com/peek/peek-git).
 To just look at an example view, there is [Peek::Views::Git](https://github.com/peek/peek-git/blob/master/lib/peek/views/git.rb).
-
-### Using Peek with Spork
-
-For best results with Spork, add this to your `prefork` block
-anytime before your environment is loaded:
-
-```ruby
-require 'peek'
-Spork.trap_class_method(Peek, :setup)
-```
 
 ## Contributing
 
