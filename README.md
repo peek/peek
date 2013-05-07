@@ -100,14 +100,14 @@ so it can report back and display that information in the Peek bar. By default
 it stores this information in memory, which is not recommended for production environments.
 
 In production environments you may have application servers on multiple hosts,
-at which Peek will not be able to access the request data if it was saved on
+at which Peek will not be able to access the request data if it was saved in memory on
 another host. Peek provides 2 additional adapters for multi server environments.
 
 You can configure which adapter Peek uses by updating your application
 config or an individual environment config file. We'll use production as an example.
 
-Note, Peek does not provide the dependencies for each of these adapters. If you use these
-adapters be sure to include their dependencies.
+Note: Peek does not provide the dependencies for each of these adapters. If you use these
+adapters be sure to include their dependencies in your application.
 
 - Redis - The [redis](https://github.com/redis/redis-rb) gem
 - Dalli - The [dalli](https://github.com/mperham/dalli) gem
