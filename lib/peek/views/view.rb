@@ -49,7 +49,7 @@ module Peek
         self.class.to_s.split('::').last.underscore.gsub(/\_/, '-')
       end
 
-      # The context dom id that is derived from the classname.
+      # The context id that is derived from the classname.
       #
       # Examples:
       #
@@ -57,7 +57,7 @@ module Peek
       #   Peek::Views::Resque => "peek-context-resque"
       #
       # Returns String.
-      def context_dom_id
+      def context_id
         "peek-context-#{defer_key}"
       end
 

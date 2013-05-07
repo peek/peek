@@ -67,7 +67,7 @@ module Peek
 
     views.each do |view|
       if view.context?
-        results[view.context_dom_id] = view.context
+        results[view.context_id] = view.context
       end
 
       view.results.each do |key, value|

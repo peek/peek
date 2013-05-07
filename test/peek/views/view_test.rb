@@ -24,8 +24,8 @@ describe Peek::Views::View do
   end
 
   describe "context" do
-    it "should return correct context_dom_id" do
-      assert_equal 'peek-context-view', @view.context_dom_id
+    it "should return correct context_id" do
+      assert_equal 'peek-context-view', @view.context_id
     end
   end
 
