@@ -140,6 +140,16 @@ rendered in place of the application layout on PJAX requests.
 
 It just works.
 
+### Using Peek with Spork
+
+For best results with Spork, add this to your `prefork` block
+anytime before your environment is loaded:
+
+```ruby
+require 'peek'
+Spork.trap_class_method(Peek, :setup)
+```
+
 ## Access Control
 
 Peek will only render in development and staging environments. If you'd
@@ -154,7 +164,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-## Available Peek items
+## Available Peek views
 
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-git](https://github.com/peek/peek-git)
@@ -183,16 +193,6 @@ to the user.
 There are still some docs to be written, but if you'd like to checkout a simple
 example of how to create your own, just checkout [peek-git](https://github.com/peek/peek-git).
 To just look at an example view, there is [Peek::Views::Git](https://github.com/peek/peek-git/blob/master/lib/peek/views/git.rb).
-
-### Using Peek with Spork
-
-For best results with Spork, add this to your `prefork` block
-anytime before your environment is loaded:
-
-```ruby
-require 'peek'
-Spork.trap_class_method(Peek, :setup)
-```
 
 ## Contributing
 
