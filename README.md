@@ -106,6 +106,11 @@ another host. Peek provides 2 additional adapters for multi server environments.
 You can configure which adapter Peek uses by updating your application
 config or an individual environment config file. We'll use production as an example.
 
+Note, Peek does not provide the dependencies for each of these adapters. If you use these
+adapters be sure to include their dependencies.
+
+- Redis - The [redis](https://github.com/redis/redis-rb) gem
+- Dalli - The [dalli](https://github.com/mperham/dalli) gem
 
 ```ruby
 Peeked::Application.configure do
