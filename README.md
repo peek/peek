@@ -116,13 +116,19 @@ adapters be sure to include their dependencies in your application.
 Peeked::Application.configure do
   # ...
 
-  # Redis
+  # Redis with no options
+  config.peek.adapter = :redis
+
+  # Redis with options
   config.peek.adapter = :redis, {
     :client => Redis.new,
     :expires_in => 60 * 30 # => 30 minutes in seconds
   }
 
-  # Or Memcache
+  # Memcache with no options
+  config.peek.adapter = :memcache
+
+  # Memcache with options
   config.peek.adapter = :memcache, {
     :client => Dalli::Client.new,
     :expires_in => 60 * 30 # => 30 minutes in seconds
