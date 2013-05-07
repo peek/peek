@@ -93,6 +93,45 @@ In `app/assets/javascripts/application.coffee`:
 Note: Each additional view my have their own CSS and JS you need to require
 which should be stated in their usage documentation.
 
+### Configuring the default adapter
+
+For Peek to work, it keeps track of all requests made in your application
+so it can report back and display that information in the Peek bar. By default
+it stores this information in memory, which is not recommended for production environments.
+
+In production environments you may have application servers on multiple hosts,
+at which Peek will not be able to access the request data if it was saved on
+another host. Peek provides 2 additional adapters for multi server environments.
+
+You can configure which adapter Peek uses by updating your application
+config or an individual environment config file. We'll use production as an example.
+
+
+```ruby
+Peeked::Application.configure do
+  # ...
+
+  # Redis
+  config.peek.adapter = :redis, {
+    :client => Redis.new,
+    :expires_in => 60 * 30 # => 30 minutes in seconds
+  }
+
+  # Or Memcache
+  config.peek.adapter = :memcache, {
+    :client => Dalli::Client.new,
+    :expires_in => 60 * 30 # => 30 minutes in seconds
+  }
+
+  # ...
+end
+```
+
+Peek doesn't persist the request data forever. It uses a safe 30 minute
+cache length that way data will be available if you'd like to aggregate it or
+use it for other Peek views. You can update this to be 30 seconds if you don't
+want the data to be available to stick around.
+
 ## Using Peek with PJAX
 
 When using [PJAX](https://github.com/defunkt/jquery-pjax) in your application,
