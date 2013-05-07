@@ -18,22 +18,17 @@ module Peek
       end
     end
 
-    initializer 'peek.setup_subscribers' do
-      ActiveSupport.on_load(:after_initialize) do
-        Peek.views
+    initializer 'peek.persist_request_data' do
+      ActiveSupport::Notifications.subscribe('process_action.action_controller') do
+        Peek.adapter.save
+        Peek.clear
       end
     end
 
     initializer 'peek.include_controller_helpers' do
       config.to_prepare do
         Peek.setup
-      end
-    end
-
-    initializer 'peek.persist_request_data' do
-      ActiveSupport::Notifications.subscribe('process_action.action_controller') do
-        Peek.adapter.save
-        Peek._request_id.update { '' }
+        Peek.views
       end
     end
   end
