@@ -1,11 +1,9 @@
 require 'peek/version'
 require 'rails'
 require 'atomic'
-require 'redis'
 
 require 'peek/adapters/memory'
 require 'peek/views/view'
-require 'peek/request'
 
 module Peek
   class << self
