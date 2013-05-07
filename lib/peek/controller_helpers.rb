@@ -10,7 +10,7 @@ module Peek
     protected
 
     def set_peek_request_id
-      Peek.request_id = env['action_dispatch.request_id']
+      Peek.request_id = request.uuid
     end
 
     def peek_enabled?
