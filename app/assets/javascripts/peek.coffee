@@ -5,12 +5,12 @@ requestId = null
 getRequestId = ->
   if requestId? then requestId else $('#peek').data('request-id')
 
-updatePerformanceBar = (data) ->
+updatePerformanceBar = (results) ->
   peekResults = $('#peek-results')
-  $('#peek [data-defer-to]').each ->
-    deferKey = $(this).data 'defer-to'
-    $(this).text data[deferKey]
-  $(document).trigger 'peek:render', data
+  for key of results.data
+    for label of results.data[key]
+      $("[data-defer-to=#{key}-#{label}]").text results.data[key][label]
+  $(document).trigger 'peek:render', results
 
 initializeTipsy = ->
   $('#peek .peek-tooltip, #peek .tooltip').each ->

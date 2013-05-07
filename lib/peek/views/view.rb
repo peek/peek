@@ -45,9 +45,10 @@ module Peek
       #   Peek::Views::Resque => "resque"
       #
       # Returns String.
-      def defer_key
+      def key
         self.class.to_s.split('::').last.underscore.gsub(/\_/, '-')
       end
+      alias defer_key key
 
       # The context id that is derived from the classname.
       #
@@ -58,14 +59,14 @@ module Peek
       #
       # Returns String.
       def context_id
-        "peek-context-#{defer_key}"
+        "peek-context-#{key}"
       end
 
       # The wrapper ID for the individual view in the Peek bar.
       #
       # Returns String.
       def dom_id
-        "peek-view-#{defer_key}"
+        "peek-view-#{key}"
       end
 
       # Additional context for any view to render tooltips for.

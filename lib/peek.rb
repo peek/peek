@@ -63,15 +63,18 @@ module Peek
   end
 
   def self.results
-    results = Hash.new { |h, k| h[k] = {} }
+    results = {
+      :context => {},
+      :data => Hash.new { |h, k| h[k] = {} }
+    }
 
     views.each do |view|
       if view.context?
-        results[view.context_id] = view.context
+        results[:context][view.key] = view.context
       end
 
       view.results.each do |key, value|
-        results["#{view.defer_key}-#{key}"] = value
+        results[:data][view.key][key] = value
       end
     end
 

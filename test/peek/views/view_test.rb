@@ -17,9 +17,9 @@ describe Peek::Views::View do
     end
   end
 
-  describe "defer_key" do
-    it "should return correct defer_key" do
-      assert_equal 'view', @view.defer_key
+  describe "key" do
+    it "should return correct key" do
+      assert_equal 'view', @view.key
     end
   end
 
