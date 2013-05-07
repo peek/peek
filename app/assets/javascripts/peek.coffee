@@ -38,7 +38,7 @@ fetchRequestResults = ->
     success: (data, textStatus, xhr) ->
       updatePerformanceBar data
     error: (xhr, textStatus, error) ->
-      console.log xhr, textStatus, error
+      # Swallow the error
 
 $(document).on 'keypress', toggleBar
 
