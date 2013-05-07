@@ -1,4 +1,4 @@
-ENV['RAILS_ENV'] = "test"
+ENV['RAILS_ENV'] = 'test'
 
 require 'peek'
 
