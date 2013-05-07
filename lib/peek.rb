@@ -3,6 +3,7 @@ require 'rails'
 require 'atomic'
 require 'redis'
 
+require 'peek/adapters/memory'
 require 'peek/views/view'
 require 'peek/request'
 
@@ -20,12 +21,32 @@ module Peek
     _request_id.update { id }
   end
 
-  def self.redis
-    @redis ||= Redis.new
+  def self.adapter
+    @adapter
   end
 
-  def self.redis=(redis)
-    @redis = redis
+  def self.adapter=(*adapter_options)
+    adapter, *parameters = *Array.wrap(adapter_options).flatten
+
+    @adapter = case adapter
+    when Symbol
+      adapter_class_name = adapter.to_s.camelize
+      adapter_class =
+        begin
+          require "peek/adapters/#{adapter}"
+        rescue LoadError => e
+          raise "Could not find adapter for #{adapter} (#{e})"
+        else
+          Peek::Adapters.const_get(adapter_class_name)
+        end
+      adapter_class.new(*parameters)
+    when nil
+      Peek::Adapters::Memory.new
+    else
+      adapter
+    end
+
+    @adapter
   end
 
   def self.enabled?
