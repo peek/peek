@@ -145,34 +145,7 @@ want the data to be available to stick around.
 
 ## Using Peek with PJAX
 
-When using [PJAX](https://github.com/defunkt/jquery-pjax) in your application,
-by default requests won't render the application layout which ends up not
-including the required results partial that we added above. It's fairly simple
-to get this working with PJAX if you're using the [pjax_rails](https://github.com/rails/pjax_rails) gem.
-
-Create a new layout at `app/views/layouts/peek.html.erb` that includes the
-`peek/results` partial like so:
-
-```erb
-<%= yield %>
-<%= render 'peek/results' %>
-```
-
-Now you'll just need use the PJAX layout:
-
-```ruby
-class ApplicationController < ActionController::Base
-  def pjax_layout
-    'peek'
-  end
-end
-```
-
-You're done! Now every time a PJAX request is made, the Peek bar will update
-with the Peek results of the PJAX request.
-
-If you aren't using pjax_rails, you just need to make sure the custom layout is
-rendered in place of the application layout on PJAX requests.
+It just works.
 
 ## Using Peek with Turbolinks
 
