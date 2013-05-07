@@ -31,6 +31,7 @@ file:
 ```ruby
 Some::Application.routes.draw do
   mount Peek::Engine => '/peek'
+  root :to => 'home#show'
 end
 ```
 
@@ -68,22 +69,9 @@ It will look like:
 </html>
 ```
 
-Peek fetches the data collected during your request by the request id. Peek will au
-
-It will look like:
-
-```erb
-<html>
-  <head>
-    <title>Application</title>
-  </head>
-  <body>
-    <%= render 'peek/bar' %>
-    <%= yield %>
-    <%= render 'peek/results' %>
-  </body>
-</html>
-```
+Peek fetches the data collected throughout your requests by using the unique request id
+that was assigned to the request by Rails. It will call out to its own controller at
+[Peek::ResultsController](https://github.com/peek/peek/blob/master/app/assets/controllers/peek/results_controller.rb) which will render the data and be inserted into the bar.
 
 Now that you have the partials in your application, you will need to include the
 CSS and JS that help make Peek :sparkles:
