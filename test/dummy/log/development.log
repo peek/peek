@@ -1,0 +1,244 @@
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-07 10:38:26 -0700
+
+ArgumentError (A secret is required to generate an integrity hash for cookie session data. Use config.secret_token = "some secret phrase of at least 30 characters"in config/initializers/secret_token.rb):
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:319:in `ensure_secret_secure'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:284:in `initialize'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:231:in `new'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:231:in `signed'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/cookie_store.rb:50:in `block in unpacked_cookie_data'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/abstract_store.rb:57:in `stale_session_check!'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/cookie_store.rb:48:in `unpacked_cookie_data'
+  rack (1.4.5) lib/rack/session/cookie.rb:107:in `extract_session_id'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/abstract_store.rb:53:in `block in extract_session_id'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/abstract_store.rb:57:in `stale_session_check!'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/abstract_store.rb:53:in `extract_session_id'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:43:in `load_session_id!'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:32:in `[]'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:267:in `current_session_id'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:273:in `session_exists?'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:107:in `exists?'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:127:in `load_for_read!'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:64:in `has_key?'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:258:in `ensure in call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:259:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__3584195077163527438__call__3984541410935093355__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-07 10:39:26 -0700
+
+ArgumentError (A secret is required to generate an integrity hash for cookie session data. Use config.secret_token = "some secret phrase of at least 30 characters"in config/initializers/secret_token.rb):
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:319:in `ensure_secret_secure'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:284:in `initialize'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:231:in `new'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:231:in `signed'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/cookie_store.rb:50:in `block in unpacked_cookie_data'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/abstract_store.rb:57:in `stale_session_check!'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/cookie_store.rb:48:in `unpacked_cookie_data'
+  rack (1.4.5) lib/rack/session/cookie.rb:107:in `extract_session_id'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/abstract_store.rb:53:in `block in extract_session_id'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/abstract_store.rb:57:in `stale_session_check!'
+  actionpack (3.2.13) lib/action_dispatch/middleware/session/abstract_store.rb:53:in `extract_session_id'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:43:in `load_session_id!'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:32:in `[]'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:267:in `current_session_id'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:273:in `session_exists?'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:107:in `exists?'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:127:in `load_for_read!'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:64:in `has_key?'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:258:in `ensure in call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:259:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1454293210104922069__call__893528018204317374__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.8ms)
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-07 10:45:51 -0700
+Processing by HomeController#show as HTML
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+  Rendered /Users/dewski/repos/peek/app/views/peek/_bar.html.erb (0.5ms)
+Completed 200 OK in 87ms (Views: 86.6ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-05-07 10:45:51 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-05-07 10:45:51 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-07 10:45:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-07 10:45:51 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-07 10:46:19 -0700
+Processing by HomeController#show as HTML
+  Rendered home/show.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (cannot load such file -- sass
+  (in /Users/dewski/repos/peek/app/assets/stylesheets/peek.scss)):
+    2: <html>
+    3: <head>
+    4:   <title>Dummy</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__2436836005468871929_70223677434220'
+
+
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0.rc1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0.rc1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /opt/boxen/rbenv/versions/1.9.3-p231-tcs-github-1.0.30/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0.rc1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-07 10:47:15 -0700
+Processing by HomeController#show as HTML
+  Rendered home/show.html.erb within layouts/application (0.8ms)
+  Rendered /Users/dewski/repos/peek/app/views/peek/_bar.html.erb (0.8ms)
+Completed 200 OK in 663ms (Views: 662.7ms)
+
+
+Started GET "/assets/peek/vendor/tipsy.css?body=1" for 127.0.0.1 at 2013-05-07 10:47:16 -0700
+
+
+Started GET "/assets/peek/vendor/jquery.tipsy.js?body=1" for 127.0.0.1 at 2013-05-07 10:47:16 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-07 10:47:16 -0700
+
+
+Started GET "/assets/peek.css?body=1" for 127.0.0.1 at 2013-05-07 10:47:16 -0700
+
+
+Started GET "/assets/peek.js?body=1" for 127.0.0.1 at 2013-05-07 10:47:16 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-07 10:47:16 -0700
+
+
+Started GET "/assets/peek/bar/development.gif" for 127.0.0.1 at 2013-05-07 10:47:16 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-07 10:48:11 -0700
+Processing by HomeController#show as HTML
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+  Rendered /Users/dewski/repos/peek/app/views/peek/_bar.html.erb (0.5ms)
+Completed 200 OK in 46ms (Views: 45.3ms)
+
+
+Started GET "/assets/peek/vendor/tipsy.css?body=1" for 127.0.0.1 at 2013-05-07 10:48:11 -0700
+
+
+Started GET "/assets/peek.css?body=1" for 127.0.0.1 at 2013-05-07 10:48:11 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-07 10:48:11 -0700
+
+
+Started GET "/assets/peek/vendor/jquery.tipsy.js?body=1" for 127.0.0.1 at 2013-05-07 10:48:11 -0700
+
+
+Started GET "/assets/peek.js?body=1" for 127.0.0.1 at 2013-05-07 10:48:11 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-07 10:48:11 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-07 11:02:09 -0700
+Processing by HomeController#show as HTML
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+  Rendered /Users/dewski/repos/peek/app/views/peek/_bar.html.erb (0.5ms)
+Completed 200 OK in 44ms (Views: 43.9ms)
+
+
+Started GET "/assets/peek/vendor/tipsy.css?body=1" for 127.0.0.1 at 2013-05-07 11:02:09 -0700
+
+
+Started GET "/assets/peek.css?body=1" for 127.0.0.1 at 2013-05-07 11:02:09 -0700
+
+
+Started GET "/assets/peek.js?body=1" for 127.0.0.1 at 2013-05-07 11:02:09 -0700
+
+
+Started GET "/assets/peek/vendor/jquery.tipsy.js?body=1" for 127.0.0.1 at 2013-05-07 11:02:09 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-07 11:02:09 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-07 11:02:09 -0700
+
+
+Started GET "/assets/peek/bar/development.gif" for 127.0.0.1 at 2013-05-07 11:02:09 -0700
