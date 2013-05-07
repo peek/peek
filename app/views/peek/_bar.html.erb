@@ -1,5 +1,5 @@
 <% if peek_enabled? %>
-<div id="peek" class="<%= Peek.env %><%= ' disabled' if cookies[:peek] == 'false' %>">
+<div id="peek" class="<%= Peek.env %><%= ' disabled' if cookies[:peek] == 'false' %>" data-request-id="<%= Peek.request_id %>">
   <div class="wrapper">
     <% Peek.views.each do |view| %>
       <div id="<%= view.dom_id %>" class="view">

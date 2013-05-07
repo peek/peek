@@ -1,7 +1,9 @@
 #= require peek/vendor/jquery.tipsy
 
+requestId = null
+
 getRequestId = ->
-  $('#peek-results').data 'request-id'
+  if requestId? then requestId else $('#peek').data('request-id')
 
 updatePerformanceBar = (data) ->
   peekResults = $('#peek-results')
@@ -44,7 +46,8 @@ $(document).on 'peek:update', initializeTipsy
 $(document).on 'peek:update', fetchRequestResults
 
 # Fire the event for our own listeners.
-$(document).on 'pjax:end', (xhr, options) ->
+$(document).on 'pjax:end', (event, xhr, options) ->
+  requestId = xhr.getResponseHeader('X-Request-Id')
   $(this).trigger 'peek:update'
 
 # Also listen to turbolinks page change event
