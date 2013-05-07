@@ -3,6 +3,8 @@ require 'peek/adapters/base'
 module Peek
   module Adapters
     class Memory < Base
+      attr_accessor :requests
+
       def initialize(options = {})
         @requests = {}
       end
@@ -13,6 +15,10 @@ module Peek
 
       def save
         @requests[Peek.request_id] = Peek.results
+      end
+
+      def reset
+        @requests.clear
       end
     end
   end
