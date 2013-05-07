@@ -25,8 +25,17 @@ Or install it yourself as:
 
 ## Usage
 
+Now that Peek is installed, you'll need to mount the engine within your `config/routes.rb`
+file:
+
+```ruby
+Some::Application.routes.draw do
+  mount Peek::Engine => '/peek'
+end
+```
+
 To pick which views you want to see in your Peek bar, just create a file at
-`config/initializers/peek.rb` that has a list of the views you'd like to see:
+`config/initializers/peek.rb` that has a list of the views you'd like to include:
 
 ```ruby
 Peek.into Peek::Views::Git, :nwo => 'github/janky'
@@ -59,12 +68,7 @@ It will look like:
 </html>
 ```
 
-Some Peek views require the view to render before data is collected and can
-be presented, ie: the number of MySQL queries ran on the page and how
-long it took.
-
-For this to work, you need to include the `peek/results` partial at the end of your
-application layout.
+Peek fetches the data collected during your request by the request id. Peek will au
 
 It will look like:
 
@@ -103,12 +107,13 @@ which should be stated in their usage documentation.
 
 ## Using Peek with PJAX
 
-When using [PJAX](https://github.com/defunkt/jquery-pjax) in your application, by default requests won't render the
-application layout which ends up not including the required results partial.
-It's fairly simple to get this working with PJAX if you're using the
-[pjax_rails](https://github.com/rails/pjax_rails) gem.
+When using [PJAX](https://github.com/defunkt/jquery-pjax) in your application,
+by default requests won't render the application layout which ends up not
+including the required results partial that we added above. It's fairly simple
+to get this working with PJAX if you're using the [pjax_rails](https://github.com/rails/pjax_rails) gem.
 
-Create a new layout at `app/views/layouts/peek.html.erb`:
+Create a new layout at `app/views/layouts/peek.html.erb` that includes the
+`peek/results` partial like so:
 
 ```erb
 <%= yield %>
@@ -128,16 +133,18 @@ end
 You're done! Now every time a PJAX request is made, the Peek bar will update
 with the Peek results of the PJAX request.
 
+If you aren't using pjax_rails, you just need to make sure the custom layout is
+rendered in place of the application layout on PJAX requests.
+
 ## Using Peek with Turbolinks
 
 It just works.
 
 ## Access Control
 
-You probably don't want to give this data to ALL your users. So by default Peek
-only shows up in development or staging environments. If you'd like to restrict Peek
-to a select few users, you can do so by overriding the `peek_enabled?` guard in
-ApplicationController.
+Peek will only render in development and staging environments. If you'd
+like to whitelist a select number of users to view Peek in production you
+can override the `peek_enabled?` guard in `ApplicationController`:
 
 ```ruby
 class ApplicationController < ActionController::Base
