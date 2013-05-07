@@ -8,6 +8,7 @@ updatePerformanceBar = (data) ->
   $('#peek [data-defer-to]').each ->
     deferKey = $(this).data 'defer-to'
     $(this).text data[deferKey]
+  $(document).trigger 'peek:render', data
 
 initializeTipsy = ->
   $('#peek .peek-tooltip, #peek .tooltip').each ->
