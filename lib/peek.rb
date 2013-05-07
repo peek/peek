@@ -98,3 +98,5 @@ module Peek
 end
 
 require 'peek/railtie'
+
+ActiveSupport.run_load_hooks(:peek, Peek)
