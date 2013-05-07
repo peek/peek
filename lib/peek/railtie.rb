@@ -32,7 +32,7 @@ module Peek
 
     initializer 'peek.persist_request_data' do
       ActiveSupport::Notifications.subscribe('process_action.action_controller') do
-        Peek::Request.save
+        Peek.adapter.save
         Peek._request_id.update { '' }
       end
     end

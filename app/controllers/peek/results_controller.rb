@@ -3,7 +3,7 @@ module Peek
     respond_to :json
 
     def show
-      render :json => Peek::Request.get(params[:request_id])
+      render :json => Peek.adapter.get(params[:request_id])
     end
   end
 end
