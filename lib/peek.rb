@@ -6,10 +6,9 @@ require 'peek/adapters/memory'
 require 'peek/views/view'
 
 module Peek
-  class << self
-    attr_accessor :_request_id
+  def self._request_id
+    @_request_id ||= Atomic.new
   end
-  self._request_id = Atomic.new('')
 
   def self.request_id
     _request_id.get
@@ -84,9 +83,19 @@ module Peek
     @views << [klass, options]
   end
 
+  # Clears out any and all views.
+  #
+  # Returns nothing.
   def self.reset
     @views = nil
     @cached_views = nil
+  end
+
+  # Hook that happens after every request. It is expected to reset
+  # any state that Peek managed throughout the requests lifecycle.
+  #
+  # Returns nothing.
+  def self.clear
     _request_id.update { '' }
   end
 
