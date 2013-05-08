@@ -10,7 +10,7 @@ updatePerformanceBar = (results) ->
   for key of results.data
     for label of results.data[key]
       $("[data-defer-to=#{key}-#{label}]").text results.data[key][label]
-  $(document).trigger 'peek:render', results
+  $(document).trigger 'peek:render', getRequestId(), results
 
 initializeTipsy = ->
   $('#peek .peek-tooltip, #peek .tooltip').each ->
