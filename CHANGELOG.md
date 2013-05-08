@@ -22,3 +22,10 @@
 # 0.0.6
 
 - Added Peek::Views::View#parse_options that gets called within initialize for subclasses to use to parse their options.
+
+# 0.1.0
+
+- Introduced a new JS event `peek:render` that includes the request id and request payload data that is used to update the information in the bar.
+- Request information has moved from the `peek/results` partial to an AJAX request that happens on page load, and when PJAX/Turbolinks change pages.
+- Removed the need for `peek/results` partial.
+- Introduced a Redis and Memcache adapter for multi-server environments to store request payloads.
