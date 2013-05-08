@@ -15,8 +15,10 @@ updatePerformanceBar = (results) ->
 initializeTipsy = ->
   $('#peek .peek-tooltip, #peek .tooltip').each ->
     el = $(this)
-    gravity = if el.hasClass('rightwards') then 'w' else 'n'
-    gravity = if el.hasClass('leftwards') then 'e' else gravity
+    gravity = if el.hasClass('rightwards') || el.hasClass('leftwards')
+      $.fn.tipsy.autoWE
+    else
+      $.fn.tipsy.autoNS
     el.tipsy { gravity }
 
 toggleBar = (event) ->
