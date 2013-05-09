@@ -71,7 +71,7 @@ It will look like:
 
 Peek fetches the data collected throughout your requests by using the unique request id
 that was assigned to the request by Rails. It will call out to its own controller at
-[Peek::ResultsController](https://github.com/peek/peek/blob/master/app/assets/controllers/peek/results_controller.rb) which will render the data and be inserted into the bar.
+[Peek::ResultsController](https://github.com/peek/peek/blob/master/app/controllers/peek/results_controller.rb) which will render the data and be inserted into the bar.
 
 Now that you have the partials in your application, you will need to include the
 CSS and JS that help make Peek :sparkles:
