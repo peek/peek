@@ -30,3 +30,7 @@
 - Removed the need for `peek/results` partial.
 - Introduced a Redis and Memcache adapter for multi-server environments to store request payloads.
 - Tooltips automatically repositions depending on where the Peek bar is.
+
+# 0.1.1
+
+- Fix bug with how `peek:render` was passing arguments around.
