@@ -30,7 +30,7 @@ file:
 
 ```ruby
 Some::Application.routes.draw do
-  mount Peek::Engine => '/peek'
+  mount Peek::Railtie => '/peek'
   root :to => 'home#show'
 end
 ```
