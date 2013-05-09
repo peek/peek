@@ -19,7 +19,9 @@ initializeTipsy = ->
       $.fn.tipsy.autoWE
     else
       $.fn.tipsy.autoNS
-    el.tipsy { gravity }
+
+    el.tipsy
+      gravity: gravity
 
 toggleBar = (event) ->
   return if $(event.target).is ':input'
