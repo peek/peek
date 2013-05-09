@@ -29,3 +29,4 @@
 - Request information has moved from the `peek/results` partial to an AJAX request that happens on page load, and when PJAX/Turbolinks change pages.
 - Removed the need for `peek/results` partial.
 - Introduced a Redis and Memcache adapter for multi-server environments to store request payloads.
+- Tooltips automatically repositions depending on where the Peek bar is.
