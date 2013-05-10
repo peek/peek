@@ -5,7 +5,7 @@ module Peek
   module Adapters
     class Memcache < Base
       def initialize(options = {})
-        @client = options.fetch(:client, Dalli::Client.new)
+        @client = options.fetch(:client, ::Dalli::Client.new)
         @expires_in = options.fetch(:expires_in, 60 * 30)
       end
 
