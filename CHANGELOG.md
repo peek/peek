@@ -34,3 +34,8 @@
 # 0.1.1
 
 - Fix bug with how `peek:render` was passing arguments around.
+
+# 0.1.2
+
+- Fix path to memcache adapter - [#34](https://github.com/peek/peek/pull/34) [@grk](https://github.com/grk)
+- Prevent namespace collision when using [peek-dalli](https://github.com/peek/peek-dalli) - [#34](https://github.com/peek/peek/pull/34) [@grk](https://github.com/grk)
