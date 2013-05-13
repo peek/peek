@@ -39,3 +39,7 @@
 
 - Fix path to memcache adapter - [#34](https://github.com/peek/peek/pull/34) [@grk](https://github.com/grk)
 - Prevent namespace collision when using [peek-dalli](https://github.com/peek/peek-dalli) - [#34](https://github.com/peek/peek/pull/34) [@grk](https://github.com/grk)
+
+# 0.1.3
+
+- Remove Redis dependency from Gemfile

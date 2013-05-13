@@ -20,5 +20,4 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'rails',  '>= 3.0.0'
   gem.add_dependency 'atomic', '>= 1.0.0'
-  gem.add_dependency 'redis',  '>= 3.0.0'
 end
