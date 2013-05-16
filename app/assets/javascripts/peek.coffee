@@ -51,7 +51,8 @@ $(document).on 'peek:update', fetchRequestResults
 
 # Fire the event for our own listeners.
 $(document).on 'pjax:end', (event, xhr, options) ->
-  requestId = xhr.getResponseHeader('X-Request-Id')
+  if xhr?
+    requestId = xhr.getResponseHeader('X-Request-Id')
   $(this).trigger 'peek:update'
 
 # Also listen to turbolinks page change event
