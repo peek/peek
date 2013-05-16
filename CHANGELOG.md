@@ -43,3 +43,7 @@
 # 0.1.3
 
 - Remove Redis dependency from Gemfile
+
+# 0.1.4
+
+- Don't access xhr object when not present in pjax:end
