@@ -151,7 +151,7 @@ It just works.
 
 It just works.
 
-### Using Peek with Spork
+## Using Peek with Spork
 
 For best results with Spork, add this to your `prefork` block
 anytime before your environment is loaded:
