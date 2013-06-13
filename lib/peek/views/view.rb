@@ -111,6 +111,14 @@ module Peek
           yield name, start, finish, id, payload
         end
       end
+
+      # Helper method for subscribing to the event that is fired when requests
+      # are finished.
+      def after_request
+        subscribe 'process_action.action_controller' do |name, start, finish, id, payload|
+          yield name, start, finish, id, payload
+        end
+      end
     end
   end
 end
