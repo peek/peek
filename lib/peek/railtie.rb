@@ -19,7 +19,7 @@ module Peek
     end
 
     initializer 'peek.persist_request_data' do
-      ActiveSupport::Notifications.subscribe('process_action.action_controller') do
+      ActiveSupport::Notifications.subscribe('action_dispatch.request') do
         Peek.adapter.save
         Peek.clear
       end
