@@ -54,7 +54,7 @@ $(document).on 'peek:update', fetchRequestResults
 # Fire the event for our own listeners.
 $(document).on 'pjax:end', (event, xhr, options) ->
   if xhr?
-    requestId = xhr.getResponseHeader('X-Request-Id')
+    requestId = xhr.getResponseHeader 'X-Request-Id'
 
   if peekEnabled()
     $(this).trigger 'peek:update'
