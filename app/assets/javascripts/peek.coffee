@@ -5,8 +5,10 @@ requestId = null
 getRequestId = ->
   if requestId? then requestId else $('#peek').data('request-id')
 
+peekEnabled = ->
+  $('#peek').length
+
 updatePerformanceBar = (results) ->
-  peekResults = $('#peek-results')
   for key of results.data
     for label of results.data[key]
       $("[data-defer-to=#{key}-#{label}]").text results.data[key][label]
@@ -53,11 +55,15 @@ $(document).on 'peek:update', fetchRequestResults
 $(document).on 'pjax:end', (event, xhr, options) ->
   if xhr?
     requestId = xhr.getResponseHeader('X-Request-Id')
-  $(this).trigger 'peek:update'
+
+  if peekEnabled()
+    $(this).trigger 'peek:update'
 
 # Also listen to turbolinks page change event
 $(document).on 'page:change', ->
-  $(this).trigger 'peek:update'
+  if peekEnabled()
+    $(this).trigger 'peek:update'
 
 $ ->
-  $(this).trigger 'peek:update'
+  if peekEnabled()
+    $(this).trigger 'peek:update'
