@@ -178,6 +178,7 @@ end
 ## Available Peek views
 
 - [peek-dalli](https://github.com/peek/peek-dalli)
+- [peek-gc](https://github.com/peek/peek-gc)
 - [peek-git](https://github.com/peek/peek-git)
 - [peek-mongo](https://github.com/peek/peek-mongo)
 - [peek-mysql2](https://github.com/peek/peek-mysql2)
