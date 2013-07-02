@@ -47,3 +47,8 @@
 # 0.1.4
 
 - Don't access xhr object when not present in pjax:end
+
+# 0.1.5
+
+- Don't trigger `peek:update` event when the peek bar isn't present - [#37](https://github.com/peek/peek/issues/37) [@dewski](https://github.com/dewski)
+- Add `after_request` helper method for Peek::Views::View to help reset state
