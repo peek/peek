@@ -52,3 +52,7 @@
 
 - Don't trigger `peek:update` event when the peek bar isn't present - [#37](https://github.com/peek/peek/issues/37) [@dewski](https://github.com/dewski)
 - Add `after_request` helper method for Peek::Views::View to help reset state
+
+# 0.1.6
+
+- Use `event.which` for normalization between `event.keyCode` and `event.charCode` - [#38](https://github.com/peek/peek/pull/38) [@leongersing](https://github.com/leongersing)
