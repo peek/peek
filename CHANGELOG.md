@@ -56,3 +56,7 @@
 # 0.1.6
 
 - Use `event.which` for normalization between `event.keyCode` and `event.charCode` - [#38](https://github.com/peek/peek/pull/38) [@leongersing](https://github.com/leongersing)
+
+# 0.1.7
+
+- Support all Rails 3.x.x versions by not using `request.uuid` instead `env` - [#39](https://github.com/peek/peek/pull/39) [@bryanmikaelian](https://github.com/bryanmikaelian)
