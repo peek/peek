@@ -189,7 +189,7 @@ end
 - [peek-resque](https://github.com/peek/peek-resque)
 - [peek-sidekiq](https://github.com/suranyami/peek-sidekiq)
 - [peek-faraday](https://github.com/grk/peek-faraday)
-- [glimpse-svn](https://github.com/neilco/glimpse-svn)
+- [peek-svn](https://github.com/neilco/peek-svn)
 - Unicorn :soon:
 
 Feel free to submit a Pull Request adding your own Peek item to this list.
