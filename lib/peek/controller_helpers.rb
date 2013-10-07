@@ -10,7 +10,7 @@ module Peek
     protected
 
     def set_peek_request_id
-      Peek.request_id = request.uuid
+      Peek.request_id = request.methods.include?(:uuid) ? request.uuid : env['action_dispatch.request_id']
     end
 
     def peek_enabled?
