@@ -26,8 +26,11 @@ module Peek
     end
 
     initializer 'peek.include_controller_helpers' do
+      ActiveSupport.on_load(:action_controller) do
+        include Peek::ControllerHelpers
+      end
+
       config.to_prepare do
-        Peek.setup
         Peek.views
       end
     end

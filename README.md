@@ -151,16 +151,6 @@ It just works.
 
 It just works.
 
-## Using Peek with Spork
-
-For best results with Spork, add this to your `prefork` block
-anytime before your environment is loaded:
-
-```ruby
-require 'peek'
-Spork.trap_class_method(Peek, :setup)
-```
-
 ## Access Control
 
 Peek will only render in development and staging environments. If you'd
