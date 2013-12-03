@@ -60,3 +60,7 @@
 # 0.1.7
 
 - Support all Rails 3.x.x versions by not using `request.uuid` instead `env` - [#39](https://github.com/peek/peek/pull/39) [@bryanmikaelian](https://github.com/bryanmikaelian)
+
+# 0.1.8
+
+- Include the ControllerHelpers directly into `ActionController::Base` - [#41](https://github.com/peek/peek/pull/41) [@lucasmazza](https://github.com/lucasmazza)
