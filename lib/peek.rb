@@ -103,7 +103,7 @@ module Peek
   end
 
   def self.setup
-    ApplicationController.send(:include, Peek::ControllerHelpers)
+    ActiveSupport::Deprecation.warn "'Peek.setup' is deprecated and does nothing.", caller
   end
 end
 
