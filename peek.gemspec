@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['me@garrettbjerkhoel.com']
   gem.description   = %q{Take a peek into your Rails application.}
   gem.summary       = %q{Take a peek into your Rails application.}
-  gem.homepage      = 'https://github.com/dewski/peek'
+  gem.homepage      = 'https://github.com/peek/peek'
   gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
