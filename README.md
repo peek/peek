@@ -171,6 +171,7 @@ end
 - [peek-gc](https://github.com/peek/peek-gc)
 - [peek-git](https://github.com/peek/peek-git)
 - [peek-mongo](https://github.com/peek/peek-mongo)
+- [peek-moped](https://github.com/nodkz/peek-moped)
 - [peek-mysql2](https://github.com/peek/peek-mysql2)
 - [peek-performance_bar](https://github.com/peek/peek-performance_bar)
 - [peek-pg](https://github.com/peek/peek-pg)
