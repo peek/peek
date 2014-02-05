@@ -111,6 +111,7 @@ adapters be sure to include their dependencies in your application.
 
 - Redis - The [redis](https://github.com/redis/redis-rb) gem
 - Dalli - The [dalli](https://github.com/mperham/dalli) gem
+- Elasticsearch - The [elasticsearch](https://github.com/elasticsearch/elasticsearch-ruby) gem
 
 ```ruby
 Peeked::Application.configure do
@@ -131,6 +132,15 @@ Peeked::Application.configure do
   # Memcache with options
   config.peek.adapter = :memcache, {
     :client => Dalli::Client.new,
+    :expires_in => 60 * 30 # => 30 minutes in seconds
+  }
+
+  # Elasticsearch with no options
+  config.peek.adapter = :elasticsearch
+
+  # Elasticsearch with options
+  config.peek.adapter = :elasticsearch, {
+    :client => Elasticsearch::Client.new,
     :expires_in => 60 * 30 # => 30 minutes in seconds
   }
 
