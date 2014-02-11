@@ -12,17 +12,10 @@ module Peek
       end
 
       def get(request_id)
-        begin
-          result = @client.get_source index: @index, type: @type, id: "#{request_id}"
-        rescue ::Elasticsearch::Transport::Transport::Errors::NotFound
-          result = false
-        end
-
-        if result
-          result.to_json
-        else
-          nil
-        end
+        result = @client.get_source index: @index, type: @type, id: "#{request_id}"
+        result.to_json
+      rescue ::Elasticsearch::Transport::Transport::Errors::NotFound
+        # pass
       end
 
       def save
