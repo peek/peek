@@ -24,15 +24,13 @@ module Peek
       end
 
       def save
-        begin
-          @client.index index: 'peek_requests_index',
-                        type: 'peek_request',
-                        id: "#{Peek.request_id}",
-                        body: Peek.results.to_json,
-                        ttl: @expires_in
-        rescue ::Elasticsearch::Transport::Transport::Errors::BadRequest
-          false
-        end
+        @client.index index: 'peek_requests_index',
+                      type: 'peek_request',
+                      id: "#{Peek.request_id}",
+                      body: Peek.results.to_json,
+                      ttl: @expires_in
+      rescue ::Elasticsearch::Transport::Transport::Errors::BadRequest
+        false
       end
 
     end
