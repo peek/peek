@@ -7,11 +7,13 @@ module Peek
       def initialize(options = {})
         @client = options.fetch(:client, ::Elasticsearch::Client.new)
         @expires_in = Integer(options.fetch(:expires_in, 60 * 30) * 1000)
+        @index = options.fetch(:index, 'peek_requests_index')
+        @type = options.fetch(:type, 'peek_request')
       end
 
       def get(request_id)
         begin
-          result = @client.get_source index: 'peek_requests_index', type: 'peek_request', id: "#{request_id}"
+          result = @client.get_source index: @index, type: @type, id: "#{request_id}"
         rescue ::Elasticsearch::Transport::Transport::Errors::NotFound
           result = false
         end
@@ -24,8 +26,8 @@ module Peek
       end
 
       def save
-        @client.index index: 'peek_requests_index',
-                      type: 'peek_request',
+        @client.index index: @index,
+                      type: @type,
                       id: "#{Peek.request_id}",
                       body: Peek.results.to_json,
                       ttl: @expires_in

@@ -141,7 +141,9 @@ Peeked::Application.configure do
   # Elasticsearch with options
   config.peek.adapter = :elasticsearch, {
     :client => Elasticsearch::Client.new,
-    :expires_in => 60 * 30 # => 30 minutes in seconds
+    :expires_in => 60 * 30, # => 30 minutes in seconds
+    :index => 'peek_requests_index',
+    :type => 'peek_request'
   }
 
   # ...
