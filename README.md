@@ -45,7 +45,7 @@ Peek.into Peek::Views::Redis
 Peek.into Peek::Views::Dalli
 ```
 
-Feel free to pick and choose from the list or create your own. The order they
+Feel free to pick and install from the [list](https://github.com/peek/peek#available-peek-views) or create your own. The order they
 are added to Peek, the order they will appear in your bar.
 
 Next, to render the Peek bar in your application just add the following snippet
