@@ -113,7 +113,7 @@ adapters be sure to include their dependencies in your application.
 - Dalli - The [dalli](https://github.com/mperham/dalli) gem
 
 ```ruby
-Peeked::Application.configure do
+Peek::Railtie.configure do
   # ...
 
   # Redis with no options
