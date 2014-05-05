@@ -143,6 +143,22 @@ cache length that way data will be available if you'd like to aggregate it or
 use it for other Peek views. You can update this to be 30 seconds if you don't
 want the data to be available to stick around.
 
+### Customizing the bar
+
+You can customize the appearance of the bar by customizing it in your own application's CSS.
+
+One common example is fixing the peek bar to the bottom, rather than top, of a page, for use with [Bootstrap](http://getbootstrap.com/):
+
+```css
+#peek {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+```
+
 ## Using Peek with PJAX
 
 It just works.
