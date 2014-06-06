@@ -1,6 +1,6 @@
 # Peek
 
-[![Build Status](https://travis-ci.org/peek/peek.png?branch=master)](https://travis-ci.org/peek/peek) [![Gem Version](https://badge.fury.io/rb/peek.png)](http://badge.fury.io/rb/peek) [![Inline docs](http://inch-pages.github.io/github/peek/peek.png)](http://inch-pages.github.io/github/peek/peek)
+[![Build Status](https://travis-ci.org/peek/peek.png?branch=master)](https://travis-ci.org/peek/peek) [![Gem Version](https://badge.fury.io/rb/peek.png)](http://badge.fury.io/rb/peek) [![Inline docs](http://inch-ci.org/github/peek/peek.png)](http://inch-ci.org/github/peek/peek)
 
 Take a peek into your Rails application.
 
