@@ -65,4 +65,21 @@
       margin-right: 0;
     }
   }
+
+  .css-truncate {
+    &.css-truncate-target,
+    .css-truncate-target {
+      display: inline-block;
+      max-width: 125px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: top;
+    }
+
+    &.expandable:hover .css-truncate-target,
+    &.expandable:hover.css-truncate-target {
+      max-width: 10000px !important;
+    }
+  }
 }
