@@ -11,10 +11,14 @@ module Peek
 
       def get(request_id)
         @client.get("peek:requests:#{request_id}")
+      rescue ::Dalli::RingError
+        # pass
       end
 
       def save
         @client.add("peek:requests:#{Peek.request_id}", Peek.results.to_json, @expires_in)
+      rescue ::Dalli::RingError
+        # pass
       end
     end
   end
