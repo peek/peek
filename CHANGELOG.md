@@ -64,3 +64,7 @@
 # 0.1.8
 
 - Include the ControllerHelpers directly into `ActionController::Base` - [#41](https://github.com/peek/peek/pull/41) [@lucasmazza](https://github.com/lucasmazza)
+
+# 0.1.9
+
+- Rescue & log Dalli exceptions instead of crashing - [#50](https://github.com/peek/peek/pull/50) [@barunio](https://github.com/barunio)
