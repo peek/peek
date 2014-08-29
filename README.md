@@ -90,7 +90,7 @@ In `app/assets/javascripts/application.coffee`:
 #= require peek
 ```
 
-Note: Each additional view my have their own CSS and JS you need to require
+Note: Each additional view may have their own CSS and JS. You need to require
 which should be stated in their usage documentation.
 
 ### Configuring the default adapter
