@@ -6,6 +6,8 @@ require 'peek/adapters/memory'
 require 'peek/views/view'
 
 module Peek
+  ALLOWED_ENVS = ['development', 'staging'].freeze
+
   def self._request_id
     @_request_id ||= Atomic.new
   end
@@ -47,7 +49,7 @@ module Peek
   end
 
   def self.enabled?
-    ['development', 'staging'].include?(env)
+    ALLOWED_ENVS.include?(env)
   end
 
   def self.env
