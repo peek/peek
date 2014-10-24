@@ -162,6 +162,10 @@ You can customize the appearance of the bar by customizing it in your own applic
 One common example is fixing the peek bar to the bottom, rather than top, of a page, for use with [Bootstrap](http://getbootstrap.com/):
 
 ```css
+body.peek-enabled {
+  margin-bottom: 35px;
+}
+
 #peek {
   position: fixed;
   bottom: 0;
@@ -169,6 +173,10 @@ One common example is fixing the peek bar to the bottom, rather than top, of a p
   right: 0;
   z-index: 999;
 }
+```
+
+```javascript
+$('#peek').parent().addClass('peek-enabled');
 ```
 
 ## Using Peek with PJAX
