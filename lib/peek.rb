@@ -47,7 +47,7 @@ module Peek
   end
 
   def self.enabled?
-    ['development', 'staging'].include?(env)
+    ['development', 'staging'].include? env
   end
 
   def self.env
@@ -58,31 +58,29 @@ module Peek
     @cached_views ||= if @views && @views.any?
       @views.collect { |klass, options| klass.new(options.dup) }.select(&:enabled?)
     else
-      []
+      Array.new
     end
   end
 
   def self.results
     results = {
-      :context => {},
-      :data => Hash.new { |h, k| h[k] = {} }
+      context: Hash.new,
+      data: Hash.new {  |h, k| h[k] = Hash.new }
     }
 
     views.each do |view|
-      if view.context?
-        results[:context][view.key] = view.context
-      end
+      
+      results[:context][view.key] = view.context if view.context?
 
-      view.results.each do |key, value|
-        results[:data][view.key][key] = value
-      end
+      view.results.each { |key, value|  results[:data][view.key][key] = value}
+
     end
 
     results
   end
 
-  def self.into(klass, options = {})
-    @views ||= []
+  def self.into(klass, options = Hash.new)
+    @views ||= Array.new
     @views << [klass, options]
   end
 
@@ -90,8 +88,7 @@ module Peek
   #
   # Returns nothing.
   def self.reset
-    @views = nil
-    @cached_views = nil
+    @views, @cached_views = nil
   end
 
   # Hook that happens after every request. It is expected to reset
@@ -99,7 +96,7 @@ module Peek
   #
   # Returns nothing.
   def self.clear
-    _request_id.update { '' }
+    _request_id.update { String.new }
   end
 
   def self.setup
@@ -109,4 +106,4 @@ end
 
 require 'peek/railtie'
 
-ActiveSupport.run_load_hooks(:peek, Peek)
+ActiveSupport.run_load_hooks :peek, Peek
