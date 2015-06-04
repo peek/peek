@@ -210,6 +210,7 @@ end
 - [peek-sidekiq](https://github.com/suranyami/peek-sidekiq)
 - [peek-faraday](https://github.com/grk/peek-faraday)
 - [peek-svn](https://github.com/neilco/peek-svn)
+- [peek-host](https://github.com/jacobbednarz/peek-host)
 - Unicorn :soon:
 
 Feel free to submit a Pull Request adding your own Peek item to this list.
