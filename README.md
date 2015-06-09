@@ -199,6 +199,7 @@ end
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-gc](https://github.com/peek/peek-gc)
 - [peek-git](https://github.com/peek/peek-git)
+- [peek-host](https://github.com/jacobbednarz/peek-host)
 - [peek-mongo](https://github.com/peek/peek-mongo)
 - [peek-moped](https://github.com/nodkz/peek-moped)
 - [peek-mysql2](https://github.com/peek/peek-mysql2)
@@ -210,7 +211,6 @@ end
 - [peek-sidekiq](https://github.com/suranyami/peek-sidekiq)
 - [peek-faraday](https://github.com/grk/peek-faraday)
 - [peek-svn](https://github.com/neilco/peek-svn)
-- [peek-host](https://github.com/jacobbednarz/peek-host)
 - Unicorn :soon:
 
 Feel free to submit a Pull Request adding your own Peek item to this list.
