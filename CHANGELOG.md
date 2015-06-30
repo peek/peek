@@ -68,3 +68,7 @@
 # 0.1.9
 
 - Rescue & log Dalli exceptions instead of crashing - [#50](https://github.com/peek/peek/pull/50) [@barunio](https://github.com/barunio)
+
+# 0.1.10
+
+- Take off Responders - [#65](https://github.com/peek/peek/pull/65) [@nwjsmith](https://github.com/nwjsmith)
