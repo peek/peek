@@ -1,6 +1,6 @@
 require 'peek/version'
 require 'rails'
-require 'atomic'
+require 'concurrent/atomics'
 
 require 'peek/adapters/memory'
 require 'peek/views/view'
@@ -9,7 +9,7 @@ module Peek
   ALLOWED_ENVS = ['development', 'staging'].freeze
 
   def self._request_id
-    @_request_id ||= Atomic.new
+    @_request_id ||= Concurrent::Atomic.new
   end
 
   def self.request_id
