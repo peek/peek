@@ -197,6 +197,7 @@ end
 
 - [peek-active_resource](https://github.com/gotmayonase/peek-active_resource)
 - [peek-dalli](https://github.com/peek/peek-dalli)
+- [peek-delayed_job](https://github.com/18F/peek-delayed_job)
 - [peek-gc](https://github.com/peek/peek-gc)
 - [peek-git](https://github.com/peek/peek-git)
 - [peek-host](https://github.com/jacobbednarz/peek-host)
