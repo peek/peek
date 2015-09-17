@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rake'
-gem 'json', '~> 1.7.7'
+gem 'json', '~> 1.8.2'
 
 gem 'rails', '~> 4.0.0.rc1'
 
