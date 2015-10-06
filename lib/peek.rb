@@ -48,6 +48,14 @@ module Peek
     @adapter
   end
 
+  def self.process_action_filter
+    @process_action_filter
+  end
+
+  def self.process_action_filter=(callable)
+    @process_action_filter = callable
+  end
+
   def self.enabled?
     ALLOWED_ENVS.include?(env)
   end
