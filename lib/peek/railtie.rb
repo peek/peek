@@ -20,8 +20,11 @@ module Peek
 
     initializer 'peek.persist_request_data' do
       ActiveSupport::Notifications.subscribe('process_action.action_controller') do
-        Peek.adapter.save
-        Peek.clear
+        |_, _, _, _, payload|
+        if payload[:peek_enabled]
+          Peek.adapter.save
+          Peek.clear
+        end
       end
     end
 
