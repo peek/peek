@@ -9,6 +9,11 @@ module Peek
 
     protected
 
+    def append_info_to_payload(payload)
+      super
+      payload[:peek_enabled] = request.cookies['peek'] == 'true'
+    end
+
     def set_peek_request_id
       Peek.request_id = env['action_dispatch.request_id']
     end
