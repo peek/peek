@@ -16,6 +16,10 @@ do ($ = jQuery) ->
         $("[data-defer-to=#{key}-#{label}]").text results.data[key][label]
     $(document).trigger 'peek:render', [getRequestId(), results]
 
+  updateNoResults = ->
+   $('[data-defer-to]').parents('.view').addClass('hidden')
+   $('#peek-no-results').removeClass('hidden')
+
   initializeTipsy = ->
     $('#peek .peek-tooltip, #peek .tooltip').each ->
       el = $(this)
@@ -44,7 +48,10 @@ do ($ = jQuery) ->
       data:
         request_id: getRequestId()
       success: (data, textStatus, xhr) ->
-        updatePerformanceBar data
+        if data?
+          updatePerformanceBar data
+        else
+          updateNoResults()
       error: (xhr, textStatus, error) ->
         # Swallow the error
 
