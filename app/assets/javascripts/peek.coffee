@@ -34,10 +34,10 @@ do ($ = jQuery) ->
       wrapper = $('#peek')
       if wrapper.hasClass 'disabled'
         wrapper.removeClass 'disabled'
-        document.cookie = "peek=true; path=/";
+        setPeekEnabledCookie(true)
       else
         wrapper.addClass 'disabled'
-        document.cookie = "peek=false; path=/";
+        setPeekEnabledCookie(false)
 
   fetchRequestResults = ->
     $.ajax '/peek/results',
@@ -48,6 +48,9 @@ do ($ = jQuery) ->
       error: (xhr, textStatus, error) ->
         # Swallow the error
 
+  setPeekEnabledCookie = (enabled) ->
+    document.cookie = "peek=#{!!enabled}; path=/";
+
   $(document).on 'keypress', toggleBar
 
   $(document).on 'peek:update', initializeTipsy
@@ -57,7 +60,6 @@ do ($ = jQuery) ->
   $(document).on 'pjax:end', (event, xhr, options) ->
     if xhr?
       requestId = xhr.getResponseHeader 'X-Request-Id'
-
     if peekEnabled()
       $(this).trigger 'peek:update'
 
@@ -68,4 +70,5 @@ do ($ = jQuery) ->
 
   $ ->
     if peekEnabled()
+      setPeekEnabledCookie(true)
       $(this).trigger 'peek:update'
