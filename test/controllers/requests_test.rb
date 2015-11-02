@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class RequestsTest < ActionDispatch::IntegrationTest
-  include ActiveSupport::Testing::MethodCallAssertions
-
   setup do
     Peek.adapter.reset
     Peek.reset
