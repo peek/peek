@@ -1,3 +1,6 @@
+//= depend_on_asset 'peek/bar/production.gif'
+//= depend_on_asset 'peek/bar/staging.gif'
+//= depend_on_asset 'peek/bar/development.gif'
 //= require peek/vendor/tipsy
 
 #peek {
