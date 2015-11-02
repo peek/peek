@@ -16,15 +16,13 @@ class RequestsTest < ActionDispatch::IntegrationTest
   end
 
   test "saves results if the peek cookie is set" do
-    assert_called(Peek.adapter, :save) do
-      get '/'
-    end
+    get '/'
+    assert_not_nil Peek.adapter.get(request.env['action_dispatch.request_id'])
   end
 
   test "does not save results if the peek cookie is not set" do
     cookies.delete('peek')
-    assert_not_called(Peek.adapter, :save) do
-      get '/'
-    end
+    get '/'
+    assert_nil Peek.adapter.get(request.env['action_dispatch.request_id'])
   end
 end
