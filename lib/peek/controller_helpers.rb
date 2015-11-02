@@ -11,7 +11,11 @@ module Peek
 
     def append_info_to_payload(payload)
       super
-      payload[:peek_enabled] = request.cookies['peek'] == 'true'
+      payload[:peek_bar_visible] = peek_bar_visible?
+    end
+
+    def peek_bar_visible?
+      request.cookies['peek'] == 'true'
     end
 
     def set_peek_request_id
