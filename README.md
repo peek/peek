@@ -196,6 +196,7 @@ end
 ## Available Peek views
 
 - [peek-active_resource](https://github.com/gotmayonase/peek-active_resource)
+- [peek-alt-routes](https://github.com/mkcode/peek-alt-routes)
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-delayed_job](https://github.com/18F/peek-delayed_job)
 - [peek-faraday](https://github.com/grk/peek-faraday)
