@@ -196,8 +196,10 @@ end
 ## Available Peek views
 
 - [peek-active_resource](https://github.com/gotmayonase/peek-active_resource)
+- [peek-alt-routes](https://github.com/mkcode/peek-alt-routes)
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-delayed_job](https://github.com/18F/peek-delayed_job)
+- [peek-faraday](https://github.com/grk/peek-faraday)
 - [peek-gc](https://github.com/peek/peek-gc)
 - [peek-git](https://github.com/peek/peek-git)
 - [peek-host](https://github.com/jacobbednarz/peek-host)
@@ -210,7 +212,6 @@ end
 - [peek-redis](https://github.com/peek/peek-redis)
 - [peek-resque](https://github.com/peek/peek-resque)
 - [peek-sidekiq](https://github.com/suranyami/peek-sidekiq)
-- [peek-faraday](https://github.com/grk/peek-faraday)
 - [peek-svn](https://github.com/neilco/peek-svn)
 - Unicorn :soon:
 
