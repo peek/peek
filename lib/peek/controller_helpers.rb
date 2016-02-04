@@ -4,7 +4,7 @@ module Peek
 
     included do
       prepend_before_action :set_peek_request_id, :if => :peek_enabled?
-      helper_method :peek_enabled?
+      helper_method :peek_enabled? if respond_to? :helper_method
     end
 
     protected
