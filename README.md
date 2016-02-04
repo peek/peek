@@ -10,7 +10,7 @@ This is a profiling tool originally built at GitHub to help us get an insight in
 
 Peek puts a little bar on top of your application to show you all sorts of helpful information about your application. From the screenshot above, you can see that Peek provides information about database queries, cache, Resque workers and more. However, this is only part of Peek's beauty.
 
-The true beauty of Peek lies in the fact that it is an extensible platform. If there are some performance metrics that you need but are not available on Peek, you can find it from the list of available [Peek Views](https://github.com/peek/peek#available-peek-views) and integrate it into Peek. Even if you do not find what you want on Peek Views, you can always [create your own](https://github.com/peek/peek#creating-your-own-peek-item).
+The true beauty of Peek lies in the fact that it is an extensible platform. If there are some performance metrics that you need but are not available on Peek, you can find it from the list of available [Peek Views](#available-peek-views) and integrate it into Peek. Even if you do not find what you want on Peek Views, you can always [create your own](#creating-your-own-peek-item).
 
 ## Installation
 
