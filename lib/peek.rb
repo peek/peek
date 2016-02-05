@@ -9,7 +9,7 @@ module Peek
   ALLOWED_ENVS = ['development', 'staging'].freeze
 
   def self._request_id
-    @_request_id ||= Concurrent::Atomic.new
+    @_request_id ||= Concurrent::AtomicReference.new
   end
 
   def self.request_id
