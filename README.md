@@ -6,8 +6,11 @@ Take a peek into your Rails application.
 
 ![Preview](https://f.cloud.github.com/assets/79995/244991/03cee1fa-8a74-11e2-8e33-283cf1298a60.png)
 
-This was originally built at GitHub to help us get insight into what's going
-on, this is just an extraction so other Rails applications can have the same.
+This is a profiling tool originally built at GitHub to help us get an insight into our application. Now, we have extracted this into Peek, so that other Rails application can experience the same benefit.   
+
+Peek puts a little bar on top of your application to show you all sorts of helpful information about your application. From the screenshot above, you can see that Peek provides information about database queries, cache, Resque workers and more. However, this is only part of Peek's beauty.
+
+The true beauty of Peek lies in the fact that it is an extensible platform. If there are some performance metrics that you need but are not available on Peek, you can find it from the list of available [Peek Views](#available-peek-views) and integrate it into Peek. Even if you do not find what you want on Peek Views, you can always [create your own](#creating-your-own-peek-item).
 
 ## Installation
 
