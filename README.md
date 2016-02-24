@@ -26,6 +26,21 @@ Or install it yourself as:
 
     $ gem install peek
 
+## What to Use Peek for and When to Use It
+
+No explanation of Peek is complete without discussing what Rails is. Rails is a framework written in the Ruby language for use in developing web applications. Peek is a profiling tool used to get different parameters of the Rails application. 
+
+If Peek is used in a Rails application, a small title bar sits atop the app for quick referencing. You can customize it to be on the bottom as well. This title bar will display information on: 
+* current branch
+* performance values
+* database queries
+* memory usage
+* job queues
+
+The list continues. If you need to obtain extra performance metrics that are not currently displayed in the Peek bar, you can simply add extra parameters to be displayed from a list called [Peek Views](https://github.com/peek/peek#available-peek-views). Even if the metric you are looking for is not listed in the Peek View list, you can [create your own](https://github.com/peek/peek#creating-your-own-peek-item).
+
+A Peek Item is simply a class that will fetch and report the data to be displayed on the Peek bar. In order to do this, Peek keeps track of every request made by the Rails application you are building. By default, this information is stored in memory. To use Peek, it must be loaded into the environment. It can be enabled to see what’s going on by looking at the stats on the Peek bar. Peek has the option to display only the required info, so that your bar won’t get crowded. 
+
 ## Usage
 
 Now that Peek is installed, you'll need to mount the engine within your `config/routes.rb`
