@@ -62,7 +62,7 @@ do ($ = jQuery) ->
       $(this).trigger 'peek:update'
 
   # Also listen to turbolinks page change event
-  $(document).on 'page:change', ->
+  $(document).on 'page:change turbolinks:load', ->
     if peekEnabled()
       $(this).trigger 'peek:update'
 
