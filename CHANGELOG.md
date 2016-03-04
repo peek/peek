@@ -72,3 +72,13 @@
 # 0.1.10
 
 - Take off Responders - [#65](https://github.com/peek/peek/pull/65) [@nwjsmith](https://github.com/nwjsmith)
+
+# 0.2.0
+
+- Add image dependencies for asset compilation - [#67](https://github.com/peek/peek/pull/67) [@fedesoria](https://github.com/fedesoria)
+- Update JSON to 1.8.2 for compatibility with Ruby 2.2.2 - [#73](https://github.com/peek/peek/pull/73) [@eitoball](https://github.com/eitoball)
+- Use concurrent-ruby gem in favor of deprecated atomic gem. - [#73](https://github.com/peek/peek/pull/73) [@eitoball](https://github.com/eitoball)
+- Prevent errors if compatibility mode is enabled for jQuery - [#74](https://github.com/peek/peek/pull/74) [@warseph](https://github.com/warseph)
+- Add dependency for coffee-rails for Rails. - [#80](https://github.com/peek/peek/pull/80) [@cllns](https://github.com/cllns)
+- Fix deprecation warnings for `helper_method` for future versions of Rails past Rails v5. - [#85](https://github.com/peek/peek/pull/85) [@mgrachev](https://github.com/mgrachev)
+- Listen to Turbolinks v5 `turbolinks:load` JS event to trigger peek updates. - [#88](https://github.com/peek/peek/pull/88) [@lucasmazza](https://github.com/lucasmazza)
