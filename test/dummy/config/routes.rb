@@ -1,3 +1,8 @@
 Dummy::Application.routes.draw do
-  root :to => 'home#show'
+  mount Peek::Railtie => 'peek'
+
+  get '/enabled' => 'home#enabled'
+  get '/disabled' => 'home#disabled'
+
+  root :to => 'home#enabled'
 end

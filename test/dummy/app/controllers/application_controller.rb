@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def peek_enabled?
-    true
+    if defined?(@peek_enabled)
+      !!@peek_enabled
+    else
+      true
+    end
   end
 end
