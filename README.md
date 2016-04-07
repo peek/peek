@@ -203,6 +203,7 @@ end
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-delayed_job](https://github.com/18F/peek-delayed_job)
 - [peek-faraday](https://github.com/grk/peek-faraday)
+- [peek-flexirest](https://github.com/andyjeffries/peek-flexirest)
 - [peek-gc](https://github.com/peek/peek-gc)
 - [peek-git](https://github.com/peek/peek-git)
 - [peek-host](https://github.com/jacobbednarz/peek-host)
