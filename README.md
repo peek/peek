@@ -42,10 +42,12 @@ To pick which views you want to see in your Peek bar, just create a file at
 `config/initializers/peek.rb` that has a list of the views you'd like to include:
 
 ```ruby
-Peek.into Peek::Views::Git, :nwo => 'github/janky'
-Peek.into Peek::Views::Mysql2
-Peek.into Peek::Views::Redis
-Peek.into Peek::Views::Dalli
+if Peek.enabled?
+  Peek.into Peek::Views::Git, :nwo => 'github/janky'
+  Peek.into Peek::Views::Mysql2
+  Peek.into Peek::Views::Redis
+  Peek.into Peek::Views::Dalli
+end
 ```
 
 Feel free to pick and install from the [list](https://github.com/peek/peek#available-peek-views) or create your own. The order they
