@@ -1,2 +1,12 @@
-before_install:
-  - gem install bundler
+language: ruby
+
+rvm:
+  - 2.3.1
+  - 2.2.5
+
+gemfile:
+  - Gemfile # Rails 5
+  - Gemfile-rails42
+
+notifications:
+  email: false
