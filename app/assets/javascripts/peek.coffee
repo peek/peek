@@ -23,9 +23,10 @@ do ($ = jQuery) ->
         $.fn.tipsy.autoWE
       else
         $.fn.tipsy.autoNS
-
+      html = el.hasClass('html')
       el.tipsy
         gravity: gravity
+        html: html
 
   toggleBar = (event) ->
     return if $(event.target).is ':input'
