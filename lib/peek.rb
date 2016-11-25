@@ -109,6 +109,7 @@ module Peek
   end
 end
 
-require 'peek/railtie'
-
-ActiveSupport.run_load_hooks(:peek, Peek)
+if Peek.enabled?
+  require 'peek/railtie'
+  ActiveSupport.run_load_hooks(:peek, Peek)
+end
