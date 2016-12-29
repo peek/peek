@@ -54,6 +54,20 @@ describe Peek do
     end
   end
 
+  describe "Peek View Assets" do
+    before do
+      Peek.reset
+    end
+
+    it "should add peek.js to main app precompile array" do
+      assert_equal true, Rails.application.config.assets.precompile.include?('peek.js')
+    end
+
+    it "should add peek.css to main app precompile array" do
+      assert_equal true, Rails.application.config.assets.precompile.include?('peek.css')
+    end
+  end
+
   describe "reset" do
     before do
       Peek.reset

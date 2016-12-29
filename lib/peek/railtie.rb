@@ -34,5 +34,11 @@ module Peek
         Peek.views
       end
     end
+
+    initializer 'peek.assets.precompile' do
+      config.to_prepare do
+        Rails.application.config.assets.precompile += %w(peek.css peek.js)
+      end
+    end
   end
 end

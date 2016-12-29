@@ -1,0 +1,5 @@
+<%
+  Peek.views.each do |view|
+    require_asset(view.partial_path) if Rails.application.assets[view.partial_path + '.css']
+  end
+%>

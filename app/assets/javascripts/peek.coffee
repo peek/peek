@@ -1,4 +1,6 @@
 #= require peek/vendor/jquery.tipsy
+#= require_self
+#= require peek_views
 
 requestId = null
 
