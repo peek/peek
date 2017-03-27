@@ -1,6 +1,6 @@
 module Peek
   class ResultsController < ApplicationController
-    before_filter :restrict_non_access
+    before_action :restrict_non_access
 
     def show
       respond_to do |format|
