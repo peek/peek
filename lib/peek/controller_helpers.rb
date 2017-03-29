@@ -3,7 +3,11 @@ module Peek
     extend ActiveSupport::Concern
 
     included do
-      prepend_before_action :set_peek_request_id, :if => :peek_enabled?
+      if Rails::VERSION::MAJOR >= 4 && Rails::VERSION::MINOR >= 2
+        prepend_before_action :set_peek_request_id, :if => :peek_enabled?
+      else
+        prepend_before_filter :set_peek_request_id, :if => :peek_enabled?
+      end
       helper_method :peek_enabled? if respond_to? :helper_method
     end
 
