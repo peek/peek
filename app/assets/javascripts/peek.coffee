@@ -16,6 +16,10 @@ do ($ = jQuery) ->
         $("[data-defer-to=#{key}-#{label}]").text results.data[key][label]
     $(document).trigger 'peek:render', [getRequestId(), results]
 
+  updateNoResults = ->
+   $('[data-defer-to]').parents('.view').addClass('hidden')
+   $('#peek-no-results').removeClass('hidden')
+
   initializeTipsy = ->
     $('#peek .peek-tooltip, #peek .tooltip').each ->
       el = $(this)
@@ -34,19 +38,25 @@ do ($ = jQuery) ->
       wrapper = $('#peek')
       if wrapper.hasClass 'disabled'
         wrapper.removeClass 'disabled'
-        document.cookie = "peek=true; path=/";
+        setPeekEnabledCookie(true)
       else
         wrapper.addClass 'disabled'
-        document.cookie = "peek=false; path=/";
+        setPeekEnabledCookie(false)
 
   fetchRequestResults = ->
     $.ajax '/peek/results',
       data:
         request_id: getRequestId()
       success: (data, textStatus, xhr) ->
-        updatePerformanceBar data
+        if data?
+          updatePerformanceBar data
+        else
+          updateNoResults()
       error: (xhr, textStatus, error) ->
         # Swallow the error
+
+  setPeekEnabledCookie = (enabled) ->
+    document.cookie = "peek=#{!!enabled}; path=/";
 
   $(document).on 'keypress', toggleBar
 
@@ -57,7 +67,6 @@ do ($ = jQuery) ->
   $(document).on 'pjax:end', (event, xhr, options) ->
     if xhr?
       requestId = xhr.getResponseHeader 'X-Request-Id'
-
     if peekEnabled()
       $(this).trigger 'peek:update'
 
@@ -68,4 +77,5 @@ do ($ = jQuery) ->
 
   $ ->
     if peekEnabled()
+      setPeekEnabledCookie(true)
       $(this).trigger 'peek:update'
