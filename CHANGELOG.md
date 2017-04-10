@@ -82,3 +82,11 @@
 - Add dependency for coffee-rails for Rails. - [#80](https://github.com/peek/peek/pull/80) [@cllns](https://github.com/cllns)
 - Fix deprecation warnings for `helper_method` for future versions of Rails past Rails v5. - [#85](https://github.com/peek/peek/pull/85) [@mgrachev](https://github.com/mgrachev)
 - Listen to Turbolinks v5 `turbolinks:load` JS event to trigger peek updates. - [#88](https://github.com/peek/peek/pull/88) [@lucasmazza](https://github.com/lucasmazza)
+
+# 1.0
+
+- Rails 4+ compatibility
+  - Update `before_filter` to `before_action` @mkcode
+  - Replace GIFs with colors @tarebyte
+- Remove CoffeeScript @dewski
+- Use Ruby JSON syntax for hashes
