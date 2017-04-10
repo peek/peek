@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'railties', '>= 3.0.0'
+  gem.add_dependency 'railties', '>= 4.0.0'
   gem.add_dependency 'concurrent-ruby', '>= 0.9.0'
   gem.add_dependency 'concurrent-ruby-ext', '>= 0.9.0'
 end
