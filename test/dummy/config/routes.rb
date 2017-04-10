@@ -4,5 +4,5 @@ Dummy::Application.routes.draw do
   get '/enabled' => 'home#enabled'
   get '/disabled' => 'home#disabled'
 
-  root :to => 'home#enabled'
+  root to: 'home#enabled'
 end

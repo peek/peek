@@ -34,7 +34,7 @@ file:
 ```ruby
 Some::Application.routes.draw do
   mount Peek::Railtie => '/peek'
-  root :to => 'home#show'
+  root to: 'home#show'
 end
 ```
 
@@ -42,7 +42,7 @@ To pick which views you want to see in your Peek bar, just create a file at
 `config/initializers/peek.rb` that has a list of the views you'd like to include:
 
 ```ruby
-Peek.into Peek::Views::Git, :nwo => 'github/janky'
+Peek.into Peek::Views::Git, nwo: 'github/janky'
 Peek.into Peek::Views::Mysql2
 Peek.into Peek::Views::Redis
 Peek.into Peek::Views::Dalli
@@ -125,8 +125,8 @@ Peeked::Application.configure do
 
   # Redis with options
   config.peek.adapter = :redis, {
-    :client => Redis.new,
-    :expires_in => 60 * 30 # => 30 minutes in seconds
+    client: Redis.new,
+    expires_in: 60 * 30 # => 30 minutes in seconds
   }
 
   # Memcache with no options
@@ -134,8 +134,8 @@ Peeked::Application.configure do
 
   # Memcache with options
   config.peek.adapter = :memcache, {
-    :client => Dalli::Client.new,
-    :expires_in => 60 * 30 # => 30 minutes in seconds
+    client: Dalli::Client.new,
+    expires_in: 60 * 30 # => 30 minutes in seconds
   }
 
   # Elasticsearch with no options
@@ -143,10 +143,10 @@ Peeked::Application.configure do
 
   # Elasticsearch with options
   config.peek.adapter = :elasticsearch, {
-    :client => Elasticsearch::Client.new,
-    :expires_in => 60 * 30, # => 30 minutes in seconds
-    :index => 'peek_requests_index',
-    :type => 'peek_request'
+    client: Elasticsearch::Client.new,
+    expires_in: 60 * 30, # => 30 minutes in seconds
+    index: 'peek_requests_index',
+    type: 'peek_request'
   }
 
   # ...

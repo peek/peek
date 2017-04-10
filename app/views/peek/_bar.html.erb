@@ -3,7 +3,7 @@
   <div class="wrapper">
     <% Peek.views.each do |view| %>
       <div id="<%= view.dom_id %>" class="view">
-        <%= render view.partial_path, :view => view %>
+        <%= render view.partial_path, view: view %>
       </div>
     <% end %>
   </div>

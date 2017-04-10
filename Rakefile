@@ -2,7 +2,7 @@ require 'bundler/gem_tasks'
 require 'rake/testtask'
 
 desc 'Default: run tests'
-task :default => :test
+task default: :test
 
 desc 'Run Peek tests.'
 Rake::TestTask.new do |t|

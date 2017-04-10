@@ -37,19 +37,19 @@ describe Peek do
     end
 
     it "should be able to append views" do
-      Peek.into Staff, :username => 'dewski'
+      Peek.into Staff, username: 'dewski'
       assert_kind_of Staff, Peek.views.first
     end
 
     it "should be able to append views with options" do
-      Peek.into Staff, :username => 'dewski'
+      Peek.into Staff, username: 'dewski'
       @staff = Peek.views.first
       assert_kind_of Staff, @staff
       assert_equal 'dewski', @staff.username
     end
 
     it "should only return enabled views" do
-      Peek.into Staff, :username => false
+      Peek.into Staff, username: false
       assert_equal [], Peek.views
     end
   end
@@ -60,7 +60,7 @@ describe Peek do
     end
 
     it "should clear any current views" do
-      Peek.into Staff, :username => 'dewski'
+      Peek.into Staff, username: 'dewski'
       assert_kind_of Staff, Peek.views.first
       Peek.reset
       assert_equal [], Peek.views

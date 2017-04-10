@@ -3,7 +3,7 @@ module Peek
     extend ActiveSupport::Concern
 
     included do
-      prepend_before_action :set_peek_request_id, :if => :peek_enabled?
+      prepend_before_action :set_peek_request_id, if: :peek_enabled?
       helper_method :peek_enabled? if respond_to? :helper_method
     end
 

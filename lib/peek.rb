@@ -66,8 +66,8 @@ module Peek
 
   def self.results
     results = {
-      :context => {},
-      :data => Hash.new { |h, k| h[k] = {} }
+      context: {},
+      data: Hash.new { |h, k| h[k] = {} }
     }
 
     views.each do |view|
