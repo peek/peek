@@ -1,4 +1,4 @@
-#= require peek/vendor/jquery.tipsy
+//= require peek/vendor/jquery.tipsy
 
 var requestId;
 
