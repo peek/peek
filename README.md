@@ -117,7 +117,7 @@ adapters be sure to include their dependencies in your application.
 - Elasticsearch - The [elasticsearch](https://github.com/elasticsearch/elasticsearch-ruby) gem
 
 ```ruby
-Peeked::Application.configure do
+Peek::Railtie.configure do
   # ...
 
   # Redis with no options
