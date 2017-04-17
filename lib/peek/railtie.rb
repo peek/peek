@@ -10,6 +10,8 @@ module Peek
     # Default adapter
     config.peek.adapter = :memory
 
+    config.peek.process_action_filter = nil
+
     initializer 'peek.set_configs' do |app|
       ActiveSupport.on_load(:peek) do
         app.config.peek.each do |k,v|
@@ -19,7 +21,10 @@ module Peek
     end
 
     initializer 'peek.persist_request_data' do
-      ActiveSupport::Notifications.subscribe('process_action.action_controller') do
+      ActiveSupport::Notifications.subscribe('process_action.action_controller') do |*args|
+        if Peek.process_action_filter && Peek.process_action_filter.respond_to?(:call)
+          next unless Peek.process_action_filter.call(args.last)
+        end
         Peek.adapter.save
         Peek.clear
       end
