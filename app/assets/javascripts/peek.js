@@ -1,86 +1,67 @@
-//= require peek/vendor/jquery.tipsy
-
 var requestId;
 
 requestId = null;
 
-(function($) {
-  var fetchRequestResults, getRequestId, initializeTipsy, peekEnabled, toggleBar, updatePerformanceBar;
+(function() {
+  var fetchRequestResults, getRequestId, peekEnabled, toggleBar, updatePerformanceBar, peformUpdate;
   getRequestId = function() {
     if (requestId != null) {
       return requestId;
     } else {
-      return $('#peek').data('request-id');
+      return document.getElementById('peek').getAttribute('data-request-id');
     }
   };
   peekEnabled = function() {
-    return $('#peek').length;
+    return document.contains(document.getElementById('peek'));
   };
   updatePerformanceBar = function(results) {
     var key, label;
     for (key in results.data) {
       for (label in results.data[key]) {
-        $("[data-defer-to=" + key + "-" + label + "]").text(results.data[key][label]);
+        document.querySelector("[data-defer-to=" + key + "-" + label + "]").textContent = results.data[key][label];
       }
     }
-    return $(document).trigger('peek:render', [getRequestId(), results]);
-  };
-  initializeTipsy = function() {
-    return $('#peek .peek-tooltip, #peek .tooltip').each(function() {
-      var el, gravity;
-      el = $(this);
-      gravity = el.hasClass('rightwards') || el.hasClass('leftwards') ? $.fn.tipsy.autoWE : $.fn.tipsy.autoNS;
-      return el.tipsy({
-        gravity: gravity
-      });
-    });
+    event = document.createEvent('CustomEvent');
+    event.initCustomEvent('peek:render', true, true, [getRequestId(), results]);
+    document.dispatchEvent(event);
   };
   toggleBar = function(event) {
     var wrapper;
-    if ($(event.target).is(':input')) {
+    if (event.target.type === 'input') {
       return;
     }
-    if (event.which === 96 && !event.metaKey) {
-      wrapper = $('#peek');
-      if (wrapper.hasClass('disabled')) {
-        wrapper.removeClass('disabled');
+    if (event.keyCode === 96) {
+      wrapper = document.getElementById('peek');
+      if (wrapper.classList.contains('disabled')) {
+        wrapper.classList.remove('disabled');
         return document.cookie = "peek=true; path=/";
       } else {
-        wrapper.addClass('disabled');
+        wrapper.classList.add('disabled');
         return document.cookie = "peek=false; path=/";
       }
     }
   };
   fetchRequestResults = function() {
-    return $.ajax('/peek/results', {
-      data: {
-        request_id: getRequestId()
-      },
-      success: function(data, textStatus, xhr) {
-        return updatePerformanceBar(data);
-      },
-      error: function(xhr, textStatus, error) {}
-    });
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          updatePerformanceBar(JSON.parse(this.responseText));
+      }
+    };
+    xhr.open('GET', '/peek/results?request_id=' + getRequestId(), true);
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.send();
   };
-  $(document).on('keypress', toggleBar);
-  $(document).on('peek:update', initializeTipsy);
-  $(document).on('peek:update', fetchRequestResults);
-  $(document).on('pjax:end', function(event, xhr, options) {
-    if (xhr != null) {
-      requestId = xhr.getResponseHeader('X-Request-Id');
-    }
+  performUpdate = function() {
     if (peekEnabled()) {
-      return $(this).trigger('peek:update');
+      event = document.createEvent('CustomEvent');
+      event.initCustomEvent('peek:update', true, true, {});
+      document.dispatchEvent(event);
     }
-  });
-  $(document).on('page:change turbolinks:load', function() {
-    if (peekEnabled()) {
-      return $(this).trigger('peek:update');
-    }
-  });
-  return $(function() {
-    if (peekEnabled()) {
-      return $(this).trigger('peek:update');
-    }
-  });
-})(jQuery);
+  }
+  document.addEventListener('keypress', toggleBar, false);
+  document.addEventListener('peek:update', fetchRequestResults);
+  document.addEventListener('page:change', performUpdate);
+  document.addEventListener('turbolinks:load', performUpdate);
+  document.addEventListener('DOMContentLoaded', performUpdate);
+})();
