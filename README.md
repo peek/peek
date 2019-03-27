@@ -153,8 +153,8 @@ Peeked::Application.configure do
 end
 ```
 
-Peek doesn't persist the request data forever. It uses a safe 30 minute
-cache length that way data will be available if you'd like to aggregate it or
+Peek doesn't persist the request data forever. It uses a safe 30 minute cache
+length that way data will be available if you'd like to aggregate it or
 use it for other Peek views. You can update this to be 30 seconds if you don't
 want the data to be available to stick around.
 
