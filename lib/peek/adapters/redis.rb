@@ -14,6 +14,8 @@ module Peek
       end
 
       def save(request_id)
+        return false if request_id.blank?
+
         @client.setex("peek:requests:#{request_id}", @expires_in, Peek.results.to_json)
       end
     end

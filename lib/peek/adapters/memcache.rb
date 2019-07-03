@@ -16,6 +16,8 @@ module Peek
       end
 
       def save(request_id)
+        return false if request_id.blank?
+
         @client.add("peek:requests:#{request_id}", Peek.results.to_json, @expires_in)
       rescue ::Dalli::DalliError => e
         Rails.logger.error "#{e.class.name}: #{e.message}"
