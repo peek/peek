@@ -13,8 +13,8 @@ module Peek
         @requests[request_id]
       end
 
-      def save
-        @requests[Peek.request_id] = Peek.results
+      def save(request_id)
+        @requests[request_id] = Peek.results
       end
 
       def reset
