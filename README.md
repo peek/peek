@@ -6,7 +6,7 @@ Take a peek into your Rails application.
 
 ![Preview](https://f.cloud.github.com/assets/79995/244991/03cee1fa-8a74-11e2-8e33-283cf1298a60.png)
 
-This is a profiling tool originally built at GitHub to help us get an insight into our application. Now, we have extracted this into Peek, so that other Rails applications can experience the same benefit.   
+This is a profiling tool originally built at GitHub to help us get an insight into our application. Now, we have extracted this into Peek, so that other Rails applications can experience the same benefit.
 
 Peek puts a little bar on top of your application to show you all sorts of helpful information about your application. From the screenshot above, you can see that Peek provides information about database queries, cache, Resque workers and more. However, this is only part of Peek's beauty.
 
@@ -202,6 +202,7 @@ end
 - [peek-alt-routes](https://github.com/mkcode/peek-alt-routes)
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-delayed_job](https://github.com/18F/peek-delayed_job)
+- [peek-devise](https://github.com/gencer/peek-devise)
 - [peek-faraday](https://github.com/grk/peek-faraday)
 - [peek-flexirest](https://github.com/andyjeffries/peek-flexirest)
 - [peek-gc](https://github.com/peek/peek-gc)
@@ -217,7 +218,6 @@ end
 - [peek-resque](https://github.com/peek/peek-resque)
 - [peek-sidekiq](https://github.com/suranyami/peek-sidekiq)
 - [peek-svn](https://github.com/neilco/peek-svn)
-- [peek-devise](https://github.com/gencer/peek-devise)
 - Unicorn :soon:
 
 Feel free to submit a Pull Request adding your own Peek item to this list.
