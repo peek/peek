@@ -18,10 +18,10 @@ module Peek
         # pass
       end
 
-      def save
+      def save(request_id)
         @client.index index: @index,
                       type: @type,
-                      id: "#{Peek.request_id}",
+                      id: "#{request_id}",
                       body: Peek.results.to_json,
                       ttl: @expires_in
       rescue ::Elasticsearch::Transport::Transport::Errors::BadRequest

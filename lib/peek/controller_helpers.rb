@@ -3,18 +3,20 @@ module Peek
     extend ActiveSupport::Concern
 
     included do
-      prepend_before_action :set_peek_request_id, if: :peek_enabled?
-      helper_method :peek_enabled? if respond_to? :helper_method
+      if respond_to? :helper_method
+        helper_method :peek_enabled?
+        helper_method :peek_request_id
+      end
     end
 
     protected
 
-    def set_peek_request_id
-      Peek.request_id = request.env['action_dispatch.request_id']
-    end
-
     def peek_enabled?
       Peek.enabled?
+    end
+
+    def peek_request_id
+      request.env['action_dispatch.request_id']
     end
   end
 end

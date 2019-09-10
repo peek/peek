@@ -90,3 +90,7 @@
   - Replace GIFs with colors @tarebyte
 - Remove CoffeeScript @dewski
 - Use Ruby JSON syntax for hashes
+
+# Next
+
+- Ensure that Peek can handle concurrent requests with a multithreaded application server

@@ -1,24 +1,11 @@
 require 'peek/version'
 require 'rails'
-require 'concurrent/atomics'
 
 require 'peek/adapters/memory'
 require 'peek/views/view'
 
 module Peek
   ALLOWED_ENVS = ['development', 'staging'].freeze
-
-  def self._request_id
-    @_request_id ||= Concurrent::AtomicReference.new
-  end
-
-  def self.request_id
-    _request_id.get
-  end
-
-  def self.request_id=(id)
-    _request_id.update { id }
-  end
 
   def self.adapter
     @adapter
@@ -94,14 +81,6 @@ module Peek
   def self.reset
     @views = nil
     @cached_views = nil
-  end
-
-  # Hook that happens after every request. It is expected to reset
-  # any state that Peek managed throughout the requests lifecycle.
-  #
-  # Returns nothing.
-  def self.clear
-    _request_id.update { '' }
   end
 
   def self.setup

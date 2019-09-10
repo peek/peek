@@ -4,13 +4,11 @@ class TestView < Peek::Views::View
   class << self
     attr_accessor :counter
   end
-  self.counter = Concurrent::AtomicReference.new(0)
+  self.counter = Concurrent::AtomicFixnum.new
 
   def results
-    self.class.counter.update { |value| value + 1 }
-
     {
-      number: self.class.counter.value
+      number: self.class.counter.increment
     }
   end
 
