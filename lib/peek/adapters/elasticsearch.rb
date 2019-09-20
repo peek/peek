@@ -19,6 +19,8 @@ module Peek
       end
 
       def save(request_id)
+        return false if request_id.blank?
+
         @client.index index: @index,
                       type: @type,
                       id: "#{request_id}",

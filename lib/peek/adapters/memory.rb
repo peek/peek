@@ -14,6 +14,8 @@ module Peek
       end
 
       def save(request_id)
+        return false if request_id.blank?
+
         @requests[request_id] = Peek.results
       end
 
