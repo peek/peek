@@ -91,6 +91,7 @@
 - Remove CoffeeScript @dewski
 - Use Ruby JSON syntax for hashes
 
-# Next
+# 1.1.0
 
-- Ensure that Peek can handle concurrent requests with a multithreaded application server
+- Ensure that Peek can handle concurrent requests with a multithreaded application server - [#113](https://github.com/peek/peek/pull/113) [@smcgivern](https://github.com/smcgivern)
+- Don't store metrics if no request ID is present - [#112](https://github.com/peek/peek/pull/112) [@rymai](https://github.com/rymai)
