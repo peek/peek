@@ -149,6 +149,15 @@ Peeked::Application.configure do
     type: 'peek_request'
   }
 
+  # Cache with no options
+  config.peek.adapter = :cache
+
+  # Cache with options
+  config.peek.adapter = :cache, {
+    cache: Rails.cache,
+    expires_in: 60 * 30 # => 30 minutes in seconds
+  }
+
   # ...
 end
 ```
