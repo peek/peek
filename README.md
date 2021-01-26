@@ -10,7 +10,7 @@ This is a profiling tool originally built at GitHub to help us get an insight in
 
 Peek puts a little bar on top of your application to show you all sorts of helpful information about your application. From the screenshot above, you can see that Peek provides information about database queries, cache, Resque workers and more. However, this is only part of Peek's beauty.
 
-The true beauty of Peek lies in the fact that it is an extensible platform. If there are some performance metrics that you need but are not available on Peek, you can find it from the list of available [Peek Views](#available-peek-views) and integrate it into Peek. Even if you do not find what you want on Peek Views, you can always [create your own](#creating-your-own-peek-item).
+The true beauty of Peek lies in the fact that it is an extensible platform. If there are some performance metrics that you need but are not available on Peek, you can find them in the list of available [Peek Views](#available-peek-views) and integrate them into Peek. Even if you do not find what you want on Peek Views, you can always [create your own](#creating-your-own-peek-item).
 
 ## Installation
 
@@ -49,9 +49,9 @@ Peek.into Peek::Views::Dalli
 ```
 
 Feel free to pick and install from the [list](https://github.com/peek/peek#available-peek-views) or create your own. The order they
-are added to Peek, the order they will appear in your bar.
+are added to Peek is the order they will appear in your bar.
 
-Next, to render the Peek bar in your application just add the following snippet
+Next, to render the Peek bar in your application, add the following snippet
 just after the opening `<body>` tag in your application layout.
 
 ```erb
@@ -100,9 +100,9 @@ For Peek to work, it keeps track of all requests made in your application
 so it can report back and display that information in the Peek bar. By default
 it stores this information in memory, which is not recommended for production environments.
 
-In production environments you may have application servers on multiple hosts,
-at which Peek will not be able to access the request data if it was saved in memory on
-another host. Peek provides 2 additional adapters for multi server environments.
+In production environments you may have application servers on multiple hosts.
+Peek will not be able to access the request data if it was saved in memory on
+another host. Peek provides additional adapters for multi server environments.
 
 You can configure which adapter Peek uses by updating your application
 config or an individual environment config file. We'll use production as an example.
@@ -151,10 +151,10 @@ Peeked::Application.configure do
 end
 ```
 
-Peek doesn't persist the request data forever. It uses a safe 30 minute
-cache length that way data will be available if you'd like to aggregate it or
+Peek doesn't persist the request data forever. It uses a safe 30 minute cache
+length so that data will be available if you'd like to aggregate it or
 use it for other Peek views. You can update this to be 30 seconds if you don't
-want the data to be available to stick around.
+want the data to be available for these or other uses.
 
 ### Customizing the bar
 
@@ -200,6 +200,7 @@ end
 - [peek-alt-routes](https://github.com/mkcode/peek-alt-routes)
 - [peek-dalli](https://github.com/peek/peek-dalli)
 - [peek-delayed_job](https://github.com/18F/peek-delayed_job)
+- [peek-devise](https://github.com/gencer/peek-devise)
 - [peek-faraday](https://github.com/grk/peek-faraday)
 - [peek-flexirest](https://github.com/andyjeffries/peek-flexirest)
 - [peek-gc](https://github.com/peek/peek-gc)
@@ -227,7 +228,7 @@ report it back to the Peek bar. A Peek item is just a custom class that
 is responsible for fetching and building the data that should be reported back
 to the user.
 
-There are still some docs to be written, but if you'd like to checkout a simple
+There are still some docs to be written, but if you'd like to check out a simple
 example of how to create your own, just checkout [peek-git](https://github.com/peek/peek-git).
 To just look at an example view, there is [Peek::Views::Git](https://github.com/peek/peek-git/blob/master/lib/peek/views/git.rb).
 

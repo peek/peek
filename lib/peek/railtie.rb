@@ -19,9 +19,10 @@ module Peek
     end
 
     initializer 'peek.persist_request_data' do
-      ActiveSupport::Notifications.subscribe('process_action.action_controller') do
-        Peek.adapter.save
-        Peek.clear
+      ActiveSupport::Notifications.subscribe('process_action.action_controller') do |_name, _start, _finish, _id, payload|
+        if request_id = payload[:headers].env['action_dispatch.request_id']
+          Peek.adapter.save(request_id)
+        end
       end
     end
 

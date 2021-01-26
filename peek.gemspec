@@ -13,12 +13,17 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/peek/peek'
   gem.license       = 'MIT'
 
+  gem.metadata      = {
+    'bug_tracker_uri'   => 'https://github.com/peek/peek/issues',
+    'changelog_uri'     => "https://github.com/peek/peek/blob/v#{gem.version}/CHANGELOG.md",
+    'documentation_uri' => "https://www.rubydoc.info/gems/peek/#{gem.version}",
+    'source_code_uri'   => "https://github.com/peek/peek/tree/v#{gem.version}",
+  }
+
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
   gem.add_dependency 'railties', '>= 4.0.0'
-  gem.add_dependency 'concurrent-ruby', '>= 0.9.0'
-  gem.add_dependency 'concurrent-ruby-ext', '>= 0.9.0'
 end

@@ -6,7 +6,10 @@ gemspec
 gem 'rake'
 gem 'json', '~> 2.0', '>= 2.0.2'
 
+# For the test application
 gem 'rails', '~> 5.0', '>= 5.0.0.1'
+gem 'concurrent-ruby', '>= 0.9.0'
+gem 'concurrent-ruby-ext', '>= 0.9.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
