@@ -6,7 +6,7 @@ Take a peek into your Rails application.
 
 ![Preview](https://f.cloud.github.com/assets/79995/244991/03cee1fa-8a74-11e2-8e33-283cf1298a60.png)
 
-This is a profiling tool originally built at GitHub to help us get an insight into our application. Now, we have extracted this into Peek, so that other Rails applications can experience the same benefit.
+This is a profiling tool originally built at GitHub to help us get an insight into our application. Now, we have extracted this into Peek, so that other Rails application can experience the same benefit.
 
 Peek puts a little bar on top of your application to show you all sorts of helpful information about your application. From the screenshot above, you can see that Peek provides information about database queries, cache, Resque workers and more. However, this is only part of Peek's beauty.
 
@@ -88,8 +88,6 @@ In `app/assets/stylesheets/application.scss`:
 In `app/assets/javascripts/application.coffee`:
 
 ```coffeescript
-#= require jquery
-#= require jquery_ujs
 #= require peek
 ```
 
